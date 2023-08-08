@@ -1,0 +1,5 @@
+package com.project.controller.member;
+
+public class MemberController {
+
+}

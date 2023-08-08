@@ -1,0 +1,14 @@
+package com.project.repository.member;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MemberRepositoryTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

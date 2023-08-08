@@ -1,0 +1,47 @@
+1691379267304	Rename type 'RootConfing'
+1691379595817	Rename package 'com.project.domain.board.boardDEL'
+1691379739308	Move compilation unit
+1691379744985	Move compilation unit
+1691379748016	Move compilation unit
+1691379817176	Delete element
+1691384380158	Rename package 'com.project.domain.board.DEL'
+1691384504140	Copy compilation unit
+1691384556740	Rename type 'BoardVO'
+1691384565870	Copy compilation unit
+1691384570307	Rename type 'InquiryBoardVO'
+1691384583727	Copy compilation unit
+1691384589489	Rename type 'AnswerVO'
+1691384673788	Copy compilation unit
+1691384679264	Rename type 'QuestionBoardVO'
+1691384706398	Copy compilation unit
+1691384711980	Rename type 'NoticeBoardVO'
+1691385531750	Copy compilation unit
+1691385542892	Copy package
+1691385554871	Delete element
+1691385557145	Delete element
+1691385690065	Copy compilation unit
+1691385706287	Rename type 'MemberVO'
+1691386003661	Rename type 'MemberAuth'
+1691386215297	Copy compilation unit
+1691386221915	Rename type 'CommentVO'
+1691386417314	Delete element
+1691386635625	Copy compilation unit
+1691386649392	Copy compilation unit
+1691386663692	Rename type 'QuestionBoardReportVO2'
+1691387683841	Copy compilation unit
+1691387701499	Copy compilation unit
+1691387713824	Copy compilation unit
+1691387727877	Copy compilation unit
+1691387738466	Copy compilation unit
+1691387768461	Copy compilation unit
+1691390901656	Copy compilation unit
+1691390907760	Delete element
+1691390914290	Delete element
+1691390931369	Delete element
+1691391052333	Delete element
+1691391078690	Delete element
+1691396899922	Copy file
+1691396906720	Rename resource 'TestMapper'
+1691397358596	Delete element
+1691397364158	Delete element
+1691397369048	Delete element
