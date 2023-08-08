@@ -34,5 +34,5 @@ public class MemberRepositoryTest extends AppTest {
 		vo.setEmail("user@test.com");
 		System.out.println(vo);
 	}
-
+	
 }

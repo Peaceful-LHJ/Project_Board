@@ -35,5 +35,25 @@
 		values(#{memberId}, #{memberPwd}, #{memberName}, #{email})
 	</insert>
 	
-
+	<update id="memberUpdate">
+		update member set
+			memberName = #{memberName}
+		where memberId = #{memberId}
+	</update>
+	
+	<select id="selectById" resultType="memberVO">
+		select memberId, memberName, email, memberPwd
+		from member where memberId=#{memberId}
+	</select>
+	
+	<update id="changePassword">
+		update member set
+			memberPwd = #{memberPwd} 
+		where memberId = #{memberId}
+	</update>
+	
+	<select id="selectByEmail" resultType="string">
+		select memberId from member where email=#{email}
+	</select>
+	
 </mapper>

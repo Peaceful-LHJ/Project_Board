@@ -8,9 +8,9 @@ public interface MemberRepository {
 	
 	MemberVO memberRead(String memberId);
 	
-	void memberUpdate(MemberVO vo);
-	
 	void memberInsert(MemberVO vo);
+	
+	void memberUpdate(MemberVO vo);
 	
 	MemberVO selectById(String memberId);
 	

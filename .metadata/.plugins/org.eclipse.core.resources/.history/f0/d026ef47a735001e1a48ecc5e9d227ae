@@ -1,0 +1,29 @@
+package com.project.service.member;
+
+import java.util.Map;
+
+import com.project.domain.member.MemberVO;
+
+public class MemberServiceImpl implements MemberService { // 회원 서비스 구현체
+
+	@Override
+	public void memberJoin(MemberVO vo) {
+
+	}
+
+	@Override
+	public void memberModify(MemberVO vo) {
+
+	}
+
+	@Override
+	public MemberVO memberRead(String memberId) {
+		return null;
+	}
+
+	@Override
+	public void changePassword(Map<String, String> memberMap) {
+
+	}
+
+}

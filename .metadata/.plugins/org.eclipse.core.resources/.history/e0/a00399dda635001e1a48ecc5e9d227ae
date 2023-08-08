@@ -1,0 +1,17 @@
+package com.project.service.member;
+
+import java.util.Map;
+
+import com.project.domain.member.MemberVO;
+
+public interface MemberService {
+	
+	void memberJoin(MemberVO vo);
+	
+	void memberModify(MemberVO vo);
+	
+	MemberVO memberRead(String memberId);
+	
+	void changePassword(Map<String, String> memberMap);
+	
+}
