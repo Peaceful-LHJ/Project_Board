@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MemberServiceImplTest" project="Project_BoardPET" tests="3" started="3" failures="0" errors="0" ignored="2">
+  <testsuite name="com.project.service.member.MemberServiceImplTest" time="2.905">
+    <testcase name="memberJoinTest" classname="com.project.service.member.MemberServiceImplTest" time="0.0" ignored="true"/>
+    <testcase name="memberReadTest" classname="com.project.service.member.MemberServiceImplTest" time="0.388"/>
+    <testcase name="memberModifyTest" classname="com.project.service.member.MemberServiceImplTest" time="0.0" ignored="true"/>
+  </testsuite>
+</testrun>
