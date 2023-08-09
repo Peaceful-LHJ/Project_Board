@@ -1,0 +1,20 @@
+package com.project.repository.board;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.AppTest;
+import com.project.domain.board.BoardVO;
+
+public class BoardRepositoryTest extends AppTest {
+	
+	@Autowired
+	BoardRepository boardRepository;
+	
+	@Test
+	public void boardInsertTest() {
+		BoardVO vo = new BoardVO();
+		
+	}
+
+}

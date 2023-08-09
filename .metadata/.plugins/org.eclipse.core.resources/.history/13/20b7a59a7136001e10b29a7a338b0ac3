@@ -1,0 +1,9 @@
+package com.project.repository.board;
+
+import com.project.domain.board.BoardVO;
+
+public interface BoardRepository {
+	
+	void insert(BoardVO vo);
+	
+}

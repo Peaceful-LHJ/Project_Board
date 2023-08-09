@@ -1,0 +1,26 @@
+package com.project.repository.board;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.AppTest;
+import com.project.domain.board.BoardVO;
+
+public class BoardRepositoryTest extends AppTest {
+	
+	@Autowired
+	BoardRepository boardRepository;
+	
+	@Ignore
+	@Test
+	public void boardInsertTest() {
+		BoardVO vo = BoardVO.builder()
+				.title("작성 테스트 제목")
+				.content("작성 테스트 내용...")
+				.writer("작성자")
+				.build();
+		boardRepository.boardInsert(vo);
+	}
+
+}

@@ -124,7 +124,7 @@ DROP TABLE member;
 -- 회원 테이블 생성
 CREATE TABLE member(
     memberId VARCHAR2(50) PRIMARY KEY,
-    memberPwd VARCHAR2(50) NOT NULL,
+    memberPwd VARCHAR2(100) NOT NULL,
     memberName VARCHAR2(12) NOT NULL UNIQUE,
     email VARCHAR2(200) NOT NULL UNIQUE,
     regDate DATE DEFAULT SYSDATE,
@@ -155,7 +155,7 @@ INSERT INTO memberAuth VALUES('writer','ROLE_MEMBER');
 CREATE TABLE DELmember(
     DELmemberNum NUMBER(10,0) PRIMARY KEY,
     memberId VARCHAR2(50) NOT NULL UNIQUE,
-    memberPwd VARCHAR2(50) NOT NULL,
+    memberPwd VARCHAR2(100) NOT NULL,
     memberName VARCHAR2(12) NOT NULL UNIQUE,
     email VARCHAR2(200) NOT NULL UNIQUE,
     regDate DATE DEFAULT SYSDATE,
@@ -168,13 +168,14 @@ CREATE SEQUENCE seq_DELmember;
 
 -- 자유게시판 테이블 생성
 CREATE TABLE board (
-  bno NUMBER(10,0) PRIMARY KEY,
-  title VARCHAR2(200) NOT NULL,
-  content VARCHAR2(4000) NOT NULL,
-  writer VARCHAR2(12) NOT NULL, -- 회원 테이블 참조
-  commentCnt NUMBER(10,0),
-  regDate DATE DEFAULT SYSDATE,
-  updateDate DATE DEFAULT SYSDATE
+    bno NUMBER(10,0) PRIMARY KEY,
+    title VARCHAR2(200) NOT NULL,
+    content VARCHAR2(4000) NOT NULL,
+    writer VARCHAR2(12) NOT NULL, -- 회원 테이블 참조
+    commentCnt NUMBER(10,0) DEFAULT '0',
+    boardLikeCnt NUMBER(10,0) DEFAULT '0',
+    regDate DATE DEFAULT SYSDATE,
+    updateDate DATE DEFAULT SYSDATE
 );
 -- 자유게시판 외래키 지정
 ALTER TABLE board ADD CONSTRAINT fk_Board_Member
@@ -202,7 +203,8 @@ CREATE TABLE board_DEL (
     title VARCHAR2(200) NOT NULL,
     content VARCHAR2(4000) NOT NULL,
     writer VARCHAR2(12) NOT NULL, -- 회원 테이블 참조
-    commentCnt NUMBER(10,0),
+    commentCnt NUMBER(10,0) DEFAULT '0',
+    boardLikeCnt NUMBER(10,0) DEFAULT '0',
     regDate DATE DEFAULT SYSDATE,
     updateDate DATE DEFAULT SYSDATE
 );
@@ -217,14 +219,14 @@ CREATE SEQUENCE seq_board_DEL;
 
 -- 질문게시판 테이블 생성
 CREATE TABLE QUESboard (
-  QUESbno NUMBER(10,0) PRIMARY KEY,
-  title VARCHAR2(200) NOT NULL,
-  content VARCHAR2(4000) NOT NULL,
-  writer VARCHAR2(12) NOT NULL, -- 회원 테이블 참조
-  answerCnt NUMBER(10,0),
-  commentCnt NUMBER(10,0),
-  regDate DATE DEFAULT SYSDATE,
-  updateDate DATE DEFAULT SYSDATE
+    QUESbno NUMBER(10,0) PRIMARY KEY,
+    title VARCHAR2(200) NOT NULL,
+    content VARCHAR2(4000) NOT NULL,
+    writer VARCHAR2(12) NOT NULL, -- 회원 테이블 참조
+    answerCnt NUMBER(10,0) DEFAULT '0',
+    commentCnt NUMBER(10,0) DEFAULT '0',
+    regDate DATE DEFAULT SYSDATE,
+    updateDate DATE DEFAULT SYSDATE
 );
 -- 질문게시판 외래키 지정
 ALTER TABLE QUESboard ADD CONSTRAINT fk_QUESboard_member
@@ -249,8 +251,8 @@ CREATE TABLE QUESboard_DEL (
     title VARCHAR2(200) NOT NULL,
     content VARCHAR2(4000) NOT NULL,
     writer VARCHAR2(12) NOT NULL, -- 회원 테이블 참조
-    answerCnt NUMBER(10,0),
-    commentCnt NUMBER(10,0),
+    answerCnt NUMBER(10,0) DEFAULT '0',
+    commentCnt NUMBER(10,0) DEFAULT '0',
     regDate DATE DEFAULT SYSDATE,
     updateDate DATE DEFAULT SYSDATE
 );
@@ -263,13 +265,13 @@ CREATE SEQUENCE seq_QUESboard_DEL;
 
 -- 질문게시판 답글 테이블 생성
 CREATE TABLE answer (
-  answerNum NUMBER(10,0) PRIMARY KEY,
-  QUESbno NUMBER(10,0) NOT NULL UNIQUE, -- 질문게시판 테이블 참조
-  title VARCHAR2(200) NOT NULL,
-  content VARCHAR2(4000) NOT NULL,
-  writer VARCHAR2(12) NOT NULL, -- 회원 테이블 참조
-  regDate DATE DEFAULT SYSDATE,
-  updateDate DATE DEFAULT SYSDATE
+    answerNum NUMBER(10,0) PRIMARY KEY,
+    QUESbno NUMBER(10,0) NOT NULL UNIQUE, -- 질문게시판 테이블 참조
+    title VARCHAR2(200) NOT NULL,
+    content VARCHAR2(4000) NOT NULL,
+    writer VARCHAR2(12) NOT NULL, -- 회원 테이블 참조
+    regDate DATE DEFAULT SYSDATE,
+    updateDate DATE DEFAULT SYSDATE
 );
 -- 질문게시판 답글 외래키 지정
 ALTER TABLE answer ADD CONSTRAINT fk_answer_QUESboard
@@ -402,7 +404,7 @@ CREATE TABLE NOTIboard (
     title VARCHAR2(200) NOT NULL,
     content VARCHAR2(4000) NOT NULL,
     writer VARCHAR2(12) NOT NULL, -- 회원 테이블 참조
-    REGdate DATE DEFAULT SYSDATE,
+    regDate DATE DEFAULT SYSDATE,
     updateDate DATE DEFAULT SYSDATE
 );
 -- 공지사항 외래키 지정
@@ -419,7 +421,7 @@ CREATE TABLE NOTIboard_DEL (
     title VARCHAR2(200) NOT NULL,
     content VARCHAR2(4000) NOT NULL,
     writer VARCHAR2(12) NOT NULL, -- 회원 테이블 참조
-    REGdate DATE DEFAULT SYSDATE,
+    regDate DATE DEFAULT SYSDATE,
     updateDate DATE DEFAULT SYSDATE
 );
 -- 삭제된 공지사항 외래키 지정
@@ -469,7 +471,7 @@ CREATE TABLE boardRPT (
     bno NUMBER(10,0) NOT NULL,
     content VARCHAR2(4000) NOT NULL,
     writer VARCHAR2(12) NOT NULL,
-    RPTdate DATE DEFAULT SYSDATE
+    rptDate DATE DEFAULT SYSDATE
 );
 -- 자유게시판 신고 외래키 지정
 ALTER TABLE boardRPT ADD CONSTRAINT fk_boardRPT_board
@@ -487,7 +489,7 @@ CREATE TABLE QUESboardRPT (
     QUESbno NUMBER(10,0) NOT NULL,
     content VARCHAR2(4000) NOT NULL,
     writer VARCHAR2(12) NOT NULL,
-    RPTdate DATE DEFAULT SYSDATE
+    rptDate DATE DEFAULT SYSDATE
 );
 -- 자유게시판 신고 외래키 지정
 ALTER TABLE QUESboardRPT ADD CONSTRAINT fk_QUESboardRPT_QUESboard
@@ -505,7 +507,7 @@ CREATE TABLE commentRPT (
     commentNum NUMBER(10,0) NOT NULL,
     content VARCHAR2(4000) NOT NULL,
     writer VARCHAR2(12) NOT NULL,
-    RPTdate DATE DEFAULT SYSDATE
+    rptDate DATE DEFAULT SYSDATE
 );
 -- 댓글 신고 외래키 지정
 ALTER TABLE commentRPT ADD CONSTRAINT fk_commentRPT_comment
@@ -520,14 +522,14 @@ CREATE SEQUENCE seq_commentRPT;
 CREATE TABLE memberRPT (
     memberRPTnum NUMBER(10,0) PRIMARY KEY,
     title VARCHAR2(200) NOT NULL,
-    RPTmemberName VARCHAR2(12) NOT NULL,
+    memberName VARCHAR2(12) NOT NULL,
     content VARCHAR2(4000) NOT NULL,
     writer VARCHAR2(12) NOT NULL,
-    RPTdate DATE DEFAULT SYSDATE
+    rptDate DATE DEFAULT SYSDATE
 );
 -- 회원 신고 외래키 지정
 ALTER TABLE memberRPT ADD CONSTRAINT fk_RPTmemberName_member
-FOREIGN KEY(RPTmemberName) REFERENCES member(memberName);
+FOREIGN KEY(memberName) REFERENCES member(memberName);
 ALTER TABLE memberRPT ADD CONSTRAINT fk_memberRPT_member
 FOREIGN KEY(writer) REFERENCES member(memberName);
 -- 회원 신고 테이블 시퀀스 생성
@@ -632,3 +634,5 @@ CREATE TABLE boardLike(
     FOREIGN KEY (memberId) REFERENCES member(memberId) ON DELETE CASCADE,
     FOREIGN KEY (bno) REFERENCES board(bno) ON DELETE CASCADE
 );
+
+COMMIT;

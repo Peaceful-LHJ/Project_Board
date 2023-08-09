@@ -1,0 +1,16 @@
+package com.project.repository.board;
+
+import org.junit.Test;
+
+import com.project.AppTest;
+import com.project.domain.board.BoardVO;
+
+public class BoardRepositoryTest extends AppTest {
+
+	@Test
+	public void boardInsertTest() {
+		BoardVO vo = new BoardVO();
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.project.repository.board;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.project.AppTest;
+
+public class BoardRepositoryTest extends AppTest {
+
+	@Test
+	public void boardInsertTest() {
+		
+	}
+
+}

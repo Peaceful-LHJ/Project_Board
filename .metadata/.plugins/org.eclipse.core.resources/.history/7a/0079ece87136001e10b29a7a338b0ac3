@@ -1,0 +1,17 @@
+package com.project.repository.board;
+
+import com.project.domain.board.BoardVO;
+
+public interface BoardRepository {
+	
+	void boardInsert(BoardVO vo);
+	
+	Integer boardInsertSelectKey(BoardVO vo);
+	
+	BoardVO boardRead(Long bno);
+	
+	int boardDelete(Long bno);
+	
+	int boardUpdate(BoardVO vo);
+	
+}

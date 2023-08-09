@@ -22,6 +22,7 @@ public class BoardVO { // 자유게시글 정보
 	private String content;
 	private String writer;
 	private String commentCnt; // Comment Count : 댓글개수
+	private Long boardLikeCnt; // Board Like Count : 추천 개수
 	private LocalDateTime regDate; // Register Date : 작성일
 	private LocalDateTime updatetime; // 수정일
 	

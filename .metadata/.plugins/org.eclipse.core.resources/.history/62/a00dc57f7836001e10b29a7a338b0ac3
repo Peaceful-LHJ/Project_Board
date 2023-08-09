@@ -1,0 +1,55 @@
+package com.project.repository.board;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.AppTest;
+import com.project.domain.board.BoardVO;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class BoardRepositoryTest extends AppTest {
+	
+	@Autowired
+	BoardRepository boardRepository;
+	
+	@Ignore
+	@Test
+	public void boardInsertTest() {
+		BoardVO vo = BoardVO.builder()
+				.title("작성 테스트 제목")
+				.content("작성 테스트 내용...")
+				.writer("작성자")
+				.build();
+		boardRepository.boardInsert(vo);
+		log.info(vo);
+	}
+	
+	@Ignore
+	@Test
+	public void boardInsertSelectKeyTest() {
+		BoardVO vo = BoardVO.builder()
+				.title("새로 작성하는 글 제목")
+				.content("새로 작성하는 글 내용")
+				.writer("관리자")
+				.build();
+		boardRepository.boardInsertSelectKey(vo);
+		log.info(vo);
+	}
+	
+	@Ignore
+	@Test
+	public void boardReadTest() {
+		BoardVO vo = boardRepository.boardRead(1L);
+		log.info(vo);
+	}
+	
+	@Test
+	public void boardDeleteTest() {
+		Long vo = boardRepository.boardDelete(6L);
+		log.info(vo);
+	}
+
+}
