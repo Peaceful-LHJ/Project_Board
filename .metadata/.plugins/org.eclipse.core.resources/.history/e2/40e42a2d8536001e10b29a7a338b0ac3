@@ -1,0 +1,13 @@
+package com.project.repository.board;
+
+import com.project.domain.board.BoardVO;
+
+public interface BoardDelRepository {
+	
+	void boardDelInsert(BoardVO vo);
+	
+	BoardVO boardDelRead(Long bno);
+	
+	Long boardDelDelete(Long bno);
+	
+}
