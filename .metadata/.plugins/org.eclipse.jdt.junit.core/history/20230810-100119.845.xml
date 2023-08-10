@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="BoardDelRepositoryTest" project="Project_BoardPET" tests="3" started="3" failures="0" errors="0" ignored="2">
-  <testsuite name="com.project.repository.board.BoardDelRepositoryTest" time="2.682">
-    <testcase name="boardDelInsertTest" classname="com.project.repository.board.BoardDelRepositoryTest" time="0.0" ignored="true"/>
-    <testcase name="boardDeleteTest" classname="com.project.repository.board.BoardDelRepositoryTest" time="0.202"/>
-    <testcase name="boardDelReadTest" classname="com.project.repository.board.BoardDelRepositoryTest" time="0.0" ignored="true"/>
-  </testsuite>
-</testrun>

@@ -1,0 +1,9 @@
+package com.project.repository.board;
+
+public interface QuestionBoardDelRepository {
+	
+	Long questionBoardDelInsert(Long QUESbno); // 삭제된 질문게시물 추가
+	
+	QustionBoardDelVO questionBoardDelRead(Long QUESbno); // 삭제된 자유게시물 열람
+	
+}

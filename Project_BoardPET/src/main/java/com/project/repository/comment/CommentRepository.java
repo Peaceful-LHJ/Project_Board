@@ -18,7 +18,9 @@ public interface CommentRepository {
 	List<CommentVO> questionBoardCommentRead(Long QUESbno); // 질문게시글 댓글 조회
 	
 	
-	Long commentDelete(Long rno); // 댓글 삭제
+	Long commentDelete(Long commentNum); // 댓글 단독 영구 삭제
+	Long commentListFromBoardDelete(Long bno); // 해당 자유게시물 댓글 모두 영구 삭제
+	Long commentListFromQuestionBoardDelete(Long bno); // 해당 질문게시물 댓글 모두 영구 삭제
 	
 	
 	Long commentUpdate(CommentVO vo); // 댓글 수정

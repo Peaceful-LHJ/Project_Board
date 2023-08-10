@@ -13,5 +13,5 @@
     <select id="boardDelRead" resultType="BoardDelVO">
     	select * from board_DEL where bno = #{bno}
     </select>
-	
+    
 </mapper>

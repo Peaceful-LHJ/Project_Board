@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.repository.comment.CommentDelRepository">
+	
+	<insert id="boardCommentDelInsert">
+    	insert into comment_DEL (DELcommentNum, commentNum, content, writer, bno, regDate, updateDate)
+		select seq_comment_DEL.nextval, commentNum, content, writer, bno, regDate, updateDate
+		from tbl_comment where commentNum = #{commentNum}
+    </insert>
+	
+	<insert id="questionBoardCommentDelInsert">
+    	insert into comment_DEL (DELcommentNum, commentNum, content, writer, QUESbno, regDate, updateDate)
+		select seq_comment_DEL.nextval, commentNum, content, writer, QUESbno, regDate, updateDate
+		from tbl_comment where commentNum = #{commentNum}
+    </insert>
+    
+	<insert id="NonBoardCommentDelInsert">
+    	insert into comment_FromDEL (fromDELcommentNum, commentNum, content, writer, bno, regDate, updateDate)
+		select seq_comment_FromDEL.nextval, commentNum, content, writer, bno, regDate, updateDate
+		from tbl_comment where commentNum = #{commentNum}
+    </insert>
+    
+    <insert id="NonQuestionBoardCommentDelInsert">
+    	insert into comment_FromDEL (fromDELcommentNum, commentNum, content, writer, QUESbno, regDate, updateDate)
+		select seq_comment_FromDEL.nextval, commentNum, content, writer, QUESbno, regDate, updateDate
+		from tbl_comment where commentNum = #{commentNum}
+    </insert>
+    
+	<select id="commentDelRead" resultType="CommentDelVO">
+    	select * from comment_DEL where DELcommentNum = #{DELcommentNum}
+    </select>
+    
+	<select id="NoncommentDelRead" resultType="CommentFromDelVO">
+    	select * from comment_FromDEL where fromDELcommentNum = #{fromDELcommentNum}
+    </select>
+	
+</mapper>
