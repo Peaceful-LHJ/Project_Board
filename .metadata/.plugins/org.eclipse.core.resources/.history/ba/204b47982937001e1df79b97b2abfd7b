@@ -1,0 +1,49 @@
+package com.project.repository.comment;
+
+import java.util.stream.LongStream;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.AppTest;
+import com.project.domain.comment.CommentVO;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class CommentRepositoryTest extends AppTest {
+	
+	@Autowired
+	CommentRepository commentRepository;
+	
+	@Ignore
+	@Test
+	public void boardCommentInsertTest() {
+		CommentVO vo = CommentVO.builder()
+				.content("댓글 작성테스트 입니다2")
+				.writer("작성자")
+				.bno(1L)
+				.build();
+		commentRepository.boardCommentInsert(vo);
+		log.info("댓글 작성 : " + vo);
+	}
+	
+	@Ignore
+	@Test
+	public void questionBoardCommentInsertTest() {
+		CommentVO vo = CommentVO.builder()
+				.content("댓글 작성테스트 입니다 !!")
+				.writer("작성자")
+				.QUESbno(1L)
+				.build();
+		commentRepository.questionBoardCommentInsert(vo);
+		log.info("댓글 작성 : " + vo);
+	}
+	
+	@Test
+	public void boardCommentRead() {
+		commentRepository.boardCommentRead(1L);
+	}
+
+}

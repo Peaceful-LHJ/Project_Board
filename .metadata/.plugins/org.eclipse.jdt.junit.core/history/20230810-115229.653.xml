@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CommentRepositoryTest" project="Project_BoardPET" tests="2" started="2" failures="0" errors="1" ignored="1">
+  <testsuite name="com.project.repository.comment.CommentRepositoryTest" time="2.648">
+    <testcase name="boardCommentInsertTest" classname="com.project.repository.comment.CommentRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="questionBoardCommentInsertTest" classname="com.project.repository.comment.CommentRepositoryTest" time="0.195">
+      <error>org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping{property='bno', mode=IN, javaType=class java.lang.Object, jdbcType=null, numericScale=null, resultMapId='null', jdbcTypeName='null', expression='null'}. Cause: org.apache.ibatis.type.TypeException: Error setting null for parameter #3 with JdbcType OTHER . Try setting a different JdbcType for this parameter or a different jdbcTypeForNull configuration property. Cause: java.sql.SQLException: ORA-17004: 열 유형이 부적합합니다.: 1111&#13;
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:96)&#13;
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:441)&#13;
+	at com.sun.proxy.$Proxy38.insert(Unknown Source)&#13;
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)&#13;
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)&#13;
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)&#13;
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)&#13;
+	at com.sun.proxy.$Proxy51.boardCommentInsert(Unknown Source)&#13;
+	at com.project.repository.comment.CommentRepositoryTest.questionBoardCommentInsertTest(CommentRepositoryTest.java:40)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)&#13;
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)&#13;
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)&#13;
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+Caused by: org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping{property='bno', mode=IN, javaType=class java.lang.Object, jdbcType=null, numericScale=null, resultMapId='null', jdbcTypeName='null', expression='null'}. Cause: org.apache.ibatis.type.TypeException: Error setting null for parameter #3 with JdbcType OTHER . Try setting a different JdbcType for this parameter or a different jdbcTypeForNull configuration property. Cause: java.sql.SQLException: ORA-17004: 열 유형이 부적합합니다.: 1111&#13;
+	at org.apache.ibatis.scripting.defaults.DefaultParameterHandler.setParameters(DefaultParameterHandler.java:89)&#13;
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.parameterize(PreparedStatementHandler.java:94)&#13;
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.parameterize(RoutingStatementHandler.java:64)&#13;
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:88)&#13;
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:49)&#13;
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)&#13;
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)&#13;
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194)&#13;
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:181)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)&#13;
+	... 39 more&#13;
+Caused by: org.apache.ibatis.type.TypeException: Error setting null for parameter #3 with JdbcType OTHER . Try setting a different JdbcType for this parameter or a different jdbcTypeForNull configuration property. Cause: java.sql.SQLException: ORA-17004: 열 유형이 부적합합니다.: 1111&#13;
+	at org.apache.ibatis.type.BaseTypeHandler.setParameter(BaseTypeHandler.java:67)&#13;
+	at org.apache.ibatis.scripting.defaults.DefaultParameterHandler.setParameters(DefaultParameterHandler.java:87)&#13;
+	... 52 more&#13;
+Caused by: java.sql.SQLException: ORA-17004: 열 유형이 부적합합니다.: 1111&#13;
+	at oracle.jdbc.driver.OracleStatement.getInternalType(OracleStatement.java:4537)&#13;
+	at oracle.jdbc.driver.OraclePreparedStatement.setNullCritical(OraclePreparedStatement.java:4312)&#13;
+	at oracle.jdbc.driver.OraclePreparedStatement.setNull(OraclePreparedStatement.java:4295)&#13;
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.setNull(OraclePreparedStatementWrapper.java:938)&#13;
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.setNull(PreparedStatementSpy.java:266)&#13;
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.setNull(HikariProxyPreparedStatement.java)&#13;
+	at org.apache.ibatis.type.BaseTypeHandler.setParameter(BaseTypeHandler.java:65)&#13;
+	... 53 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

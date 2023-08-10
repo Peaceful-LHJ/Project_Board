@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CommentRepositoryTest" project="Project_BoardPET" tests="5" started="5" failures="0" errors="0" ignored="4">
+  <testsuite name="com.project.repository.comment.CommentRepositoryTest" time="0.378">
+    <testcase name="questionBoardCommentRead" classname="com.project.repository.comment.CommentRepositoryTest" time="0.376"/>
+    <testcase name="boardCommentRead" classname="com.project.repository.comment.CommentRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="boardCommentInsertTest" classname="com.project.repository.comment.CommentRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="questionBoardCommentInsertTest" classname="com.project.repository.comment.CommentRepositoryTest" time="0.001" ignored="true"/>
+    <testcase name="commentRead" classname="com.project.repository.comment.CommentRepositoryTest" time="0.0" ignored="true"/>
+  </testsuite>
+</testrun>

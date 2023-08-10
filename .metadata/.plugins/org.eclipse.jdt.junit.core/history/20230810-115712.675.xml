@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CommentRepositoryTest" project="Project_BoardPET" tests="3" started="3" failures="0" errors="1" ignored="2">
+  <testsuite name="com.project.repository.comment.CommentRepositoryTest" time="0.358">
+    <testcase name="boardCommentRead" classname="com.project.repository.comment.CommentRepositoryTest" time="0.357">
+      <error>org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 7&#13;
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:96)&#13;
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:441)&#13;
+	at com.sun.proxy.$Proxy38.selectOne(Unknown Source)&#13;
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:160)&#13;
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87)&#13;
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)&#13;
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)&#13;
+	at com.sun.proxy.$Proxy51.boardCommentRead(Unknown Source)&#13;
+	at com.project.repository.comment.CommentRepositoryTest.boardCommentRead(CommentRepositoryTest.java:46)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)&#13;
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)&#13;
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)&#13;
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+Caused by: org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 7&#13;
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:80)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)&#13;
+	... 39 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="boardCommentInsertTest" classname="com.project.repository.comment.CommentRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="questionBoardCommentInsertTest" classname="com.project.repository.comment.CommentRepositoryTest" time="0.0" ignored="true"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BoardDelRepositoryTest" project="Project_BoardPET" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.project.repository.board.BoardDelRepositoryTest" time="0.254">
+    <testcase name="boardDelInsertTest" classname="com.project.repository.board.BoardDelRepositoryTest" time="0.254"/>
+  </testsuite>
+</testrun>
