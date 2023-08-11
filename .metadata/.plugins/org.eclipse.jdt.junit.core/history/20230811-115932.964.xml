@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="InquriyBoardRepositoryTest" project="Project_BoardPET" tests="3" started="3" failures="0" errors="0" ignored="2">
+  <testsuite name="com.project.repository.board.InquriyBoardRepositoryTest" time="2.538">
+    <testcase name="inquiryBoardInsertTest" classname="com.project.repository.board.InquriyBoardRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="inquiryBoardDeleteTest" classname="com.project.repository.board.InquriyBoardRepositoryTest" time="0.169"/>
+    <testcase name="inquiryBoardReadTest" classname="com.project.repository.board.InquriyBoardRepositoryTest" time="0.0" ignored="true"/>
+  </testsuite>
+</testrun>

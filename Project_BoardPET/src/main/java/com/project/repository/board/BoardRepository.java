@@ -8,8 +8,6 @@ public interface BoardRepository {
 	
 	void boardInsert(BoardVO vo);
 	
-	Integer boardInsertSelectKey(BoardVO vo);
-	
 	BoardVO boardRead(Long bno);
 	
 	Long boardDelete(Long bno);

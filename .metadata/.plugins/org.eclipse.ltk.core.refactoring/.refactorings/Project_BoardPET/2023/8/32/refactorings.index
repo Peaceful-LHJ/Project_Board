@@ -57,3 +57,51 @@
 1691644290394	Move compilation unit
 1691644292681	Delete element
 1691645601063	Copy compilation unit
+1691717366000	Copy file
+1691718591096	Copy file
+1691720872934	Move compilation unit
+1691720875622	Move compilation unit
+1691720878070	Move compilation unit
+1691720937997	Move compilation unit
+1691720959212	Move compilation unit
+1691720963757	Move compilation unit
+1691720965816	Move compilation unit
+1691721253858	Rename type 'InquriyBoardRepository'
+1691721316953	Delete element
+1691721334575	Move file
+1691721337591	Move file
+1691721340648	Move file
+1691721377219	Move file
+1691721380688	Move file
+1691721383225	Move file
+1691721384963	Move file
+1691721387501	Delete element
+1691721401082	Copy file
+1691721432277	Rename resource 'NoticeBoardMapper.xml'
+1691721624069	Move file
+1691721625699	Move file
+1691721627349	Delete element
+1691721630184	Move file
+1691721632136	Delete element
+1691721646317	Move file
+1691721649388	Move file
+1691721651400	Move file
+1691722219612	Delete element
+1691723353171	Copy file
+1691723362507	Rename resource 'CommentMapper.xml'
+1691729393518	Copy compilation unit
+1691729943517	Rename type 'AnswerDelFromVO'
+1691730100089	Copy file
+1691730112092	Rename resource 'CommentDelMapper.xml'
+1691736943847	Rename type 'BoardReport'
+1691736951840	Rename type 'CommentReport'
+1691736961203	Rename type 'MemberReport'
+1691736970066	Rename type 'QuestionBoardReport'
+1691738178494	Copy file
+1691738839478	Copy file
+1691738990291	Rename resource 'BoardReportMapper.xml'
+1691738999297	Rename resource 'QuestionBoardReportMapper.xml'
+1691739012126	Rename resource 'QuestionBoardReportMapper1.xml'
+1691739719435	Copy compilation unit
+1691739728712	Delete element
+1691739738685	Copy file

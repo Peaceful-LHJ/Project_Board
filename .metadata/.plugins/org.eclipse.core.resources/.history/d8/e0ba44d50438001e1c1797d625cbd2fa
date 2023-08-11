@@ -1,0 +1,21 @@
+package com.project.repository.board.boardDEL;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.AppTest;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class AnswerDelRepositoryTest extends AppTest {
+	
+	@Autowired
+	AnswerDelRepository answerDelRepository;
+	
+	@Test
+	public void answerDelInsertTest() {
+		
+	}
+
+}

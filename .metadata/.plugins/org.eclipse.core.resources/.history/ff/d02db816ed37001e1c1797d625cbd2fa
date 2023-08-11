@@ -1,0 +1,23 @@
+package com.project.repository.board;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class NoticeBoardDelRepositoryTest { // 삭제된 공지사항 repository 테스트
+	
+	@Autowired
+	NoticeBoardDelRepository noticeBoardDelRepository;
+	
+	@Ignore
+	@Test
+	public void noticeBoardDelInsertTest() { // 공지사항 삭제테이블로 이동 테스트
+		noticeBoardDelRepository.noticeBoardDelInsert(1L);
+	}
+	
+	
+
+}

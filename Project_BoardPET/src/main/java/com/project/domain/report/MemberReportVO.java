@@ -18,7 +18,7 @@ import lombok.ToString;
 public class MemberReportVO { // 회원 신고 정보
 	
 	private Long memberRPTnum; // Member Report Number : 회원 신고 번호
-	private Long memberName; // 신고 대상 회원
+	private String memberName; // 신고 대상 회원
 	private String title;
 	private String content;
 	private String writer; // 신고글 작성자

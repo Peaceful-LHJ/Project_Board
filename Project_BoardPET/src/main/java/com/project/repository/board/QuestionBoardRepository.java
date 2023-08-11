@@ -8,8 +8,6 @@ public interface QuestionBoardRepository {
 	
 	void questionBoardInsert(QuestionBoardVO vo);
 	
-	Integer questionBoardInsertSelectKey(QuestionBoardVO vo);
-	
 	QuestionBoardVO questionBoardRead(Long QUESbno);
 	
 	Long questionBoardDelete(Long QUESbno);

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AnswerDelRepositoryTest" project="Project_BoardPET" tests="2" started="2" failures="0" errors="0" ignored="1">
+  <testsuite name="com.project.repository.board.boardDEL.AnswerDelRepositoryTest" time="0.178">
+    <testcase name="NonAnswerDelInsertTest" classname="com.project.repository.board.boardDEL.AnswerDelRepositoryTest" time="0.177"/>
+    <testcase name="answerDelInsertTest" classname="com.project.repository.board.boardDEL.AnswerDelRepositoryTest" time="0.0" ignored="true"/>
+  </testsuite>
+</testrun>

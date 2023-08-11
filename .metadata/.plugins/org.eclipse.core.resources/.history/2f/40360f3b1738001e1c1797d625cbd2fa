@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.repository.report.QuestionBoardReportRepository">
+	
+	<insert id="questionBoardReportInsert">
+		insert into QUESboardRPT (QUESboardRPTnum, QUESbno, title, content, writer)
+		values (seq_QUESboardRPT.nextval, #{bno}, #{title}, #{content}, #{writer})
+	</insert>
+	
+	<select id="questionBoardReportRead" resultType="QuestionBoardReportVO">
+		select * from QUESboardRPT where boardRPTnum = #{boardRPTnum}
+	</select>
+	
+	<delete id="questionBoardReportDelete">
+		delete from QUESboardRPT where boardRPTnum = #{boardRPTnum}
+	</delete>
+	
+</mapper>

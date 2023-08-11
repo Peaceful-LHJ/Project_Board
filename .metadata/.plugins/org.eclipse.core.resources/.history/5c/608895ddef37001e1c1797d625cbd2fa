@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.repository.board.QuestionBoardDelRepository">
+	
+    <insert id="questionBoardDelInsert">
+    	insert into QUESboard_DEL (delQUESbno, QUESbno, title, content, writer, regDate, updateDate)
+		select seq_QUESboard_DEL.nextval, QUESbno, title, content, writer, regDate, updateDate
+		from QUESboard where QUESbno = #{QUESbno}
+    </insert>
+    
+	<select id="questionBoardDelRead" resultType="QuestionBoardDelVO">
+    	select * from QUESboard_DEL where QUESbno = #{QUESbno}
+    </select>
+	
+</mapper>

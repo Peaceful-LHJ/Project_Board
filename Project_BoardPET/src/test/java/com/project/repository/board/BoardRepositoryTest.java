@@ -29,18 +29,6 @@ public class BoardRepositoryTest extends AppTest {
 	
 	@Ignore
 	@Test
-	public void boardInsertSelectKeyTest() {
-		BoardVO vo = BoardVO.builder()
-				.title("새로 작성하는 글 제목")
-				.content("새로 작성하는 글 내용")
-				.writer("관리자")
-				.build();
-		boardRepository.boardInsertSelectKey(vo);
-		log.info(vo);
-	}
-	
-	@Ignore
-	@Test
 	public void boardReadTest() {
 		BoardVO vo = boardRepository.boardRead(1L);
 		log.info(vo);
@@ -60,7 +48,6 @@ public class BoardRepositoryTest extends AppTest {
 				.bno(1L)
 				.title("수정 테스트 제목")
 				.content("수정 작성글 내용")
-				.writer("사용자")
 				.build();
 		Long count = boardRepository.boardUpdate(vo);
 		log.info("수정된 게시물 : " + count);

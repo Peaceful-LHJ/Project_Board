@@ -1,0 +1,14 @@
+package com.project.repository.board;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class AnswerRepositoryTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

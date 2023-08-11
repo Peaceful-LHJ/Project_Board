@@ -9,11 +9,6 @@
     	values (seq_QUESboard.nextval, #{title}, #{content}, #{writer})
     </insert>
     
-    <insert id="questionBoardInsertSelectKey" keyColumn="QUESbno" keyProperty="QUESbno" useGeneratedKeys="true">
-  	    insert into QUESboard(QUESbno, title, content, writer)
-    	values (seq_QUESboard.nextval, #{title}, #{content}, #{writer})
-    </insert>
-    
 	<select id="questionBoardRead" resultType="QuestionBoardVO">
     	select * from QUESboard where QUESbno = #{QUESbno}
     </select>
@@ -26,7 +21,6 @@
     	update QUESboard set
     	title = #{title},
     	content = #{content},
-    	writer = #{writer},
     	updateDate = sysdate
     	where QUESbno = #{QUESbno}
     </update>

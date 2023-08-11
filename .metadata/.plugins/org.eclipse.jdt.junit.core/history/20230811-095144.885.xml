@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="QuestionBoardRepositoryTest" project="Project_BoardPET" tests="4" started="4" failures="0" errors="0" ignored="3">
+  <testsuite name="com.project.repository.board.QuestionBoardRepositoryTest" time="2.712">
+    <testcase name="questionBoardReadTest" classname="com.project.repository.board.QuestionBoardRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="questionBoardInsertTest" classname="com.project.repository.board.QuestionBoardRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="questionBoardDeleteTest" classname="com.project.repository.board.QuestionBoardRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="questionBoardUpdateTest" classname="com.project.repository.board.QuestionBoardRepositoryTest" time="0.349"/>
+  </testsuite>
+</testrun>

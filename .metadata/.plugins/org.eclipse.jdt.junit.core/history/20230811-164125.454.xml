@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CommentReportRepositoryTest" project="Project_BoardPET" tests="3" started="3" failures="0" errors="0" ignored="2">
+  <testsuite name="com.project.repository.report.CommentReportRepositoryTest" time="2.805">
+    <testcase name="commentReportInsertTest" classname="com.project.repository.report.CommentReportRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="commentReportDeleteTest" classname="com.project.repository.report.CommentReportRepositoryTest" time="0.173"/>
+    <testcase name="commentReportReadTest" classname="com.project.repository.report.CommentReportRepositoryTest" time="0.0" ignored="true"/>
+  </testsuite>
+</testrun>

@@ -43,8 +43,8 @@
 	
 	<update id="commentUpdate">
 		update tbl_comment set
-			content=#{content}, 
-			updateDate=sysdate
+			content = #{content}, 
+			updateDate = sysdate
 		where commentNum = #{commentNum}
 	</update>
 	

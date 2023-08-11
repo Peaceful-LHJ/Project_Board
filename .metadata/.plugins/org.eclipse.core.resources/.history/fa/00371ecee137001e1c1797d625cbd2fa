@@ -1,0 +1,19 @@
+package com.project.repository.board;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.project.AppTest;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class QuestionBoardDelRepositoryTest extends AppTest {
+
+	@Test
+	public void questionBoardDelInsertTest() {
+		
+	}
+
+}

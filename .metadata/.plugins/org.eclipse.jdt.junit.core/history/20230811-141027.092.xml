@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AnswerRepositoryTest" project="Project_BoardPET" tests="7" started="7" failures="0" errors="0" ignored="6">
+  <testsuite name="com.project.repository.board.AnswerRepositoryTest" time="2.577">
+    <testcase name="answerListDeleteTest" classname="com.project.repository.board.AnswerRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="answerDeleteTest" classname="com.project.repository.board.AnswerRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="answerListReadTest" classname="com.project.repository.board.AnswerRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="answerReadTest" classname="com.project.repository.board.AnswerRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="getAnswerCountTest" classname="com.project.repository.board.AnswerRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="answerUpdateTest" classname="com.project.repository.board.AnswerRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="answerInsertTest" classname="com.project.repository.board.AnswerRepositoryTest" time="0.175"/>
+  </testsuite>
+</testrun>

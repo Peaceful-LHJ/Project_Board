@@ -9,11 +9,6 @@
     	values (seq_board.nextval, #{title}, #{content}, #{writer})
     </insert>
     
-    <insert id="boardInsertSelectKey" keyColumn="bno" keyProperty="bno" useGeneratedKeys="true">
-  	    insert into board(bno, title, content, writer)
-    	values (seq_board.nextval, #{title}, #{content}, #{writer})
-    </insert>
-    
 	<select id="boardRead" resultType="BoardVO">
     	select * from board where bno = #{bno}
     </select>
@@ -26,7 +21,6 @@
     	update board set
     	title = #{title},
     	content = #{content},
-    	writer = #{writer},
     	updateDate = sysdate
     	where bno = #{bno}
     </update>
