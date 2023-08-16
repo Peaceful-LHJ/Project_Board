@@ -1,0 +1,32 @@
+package com.project.repository.board;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.AppTest;
+import com.project.domain.board.BoardLikeDTO;
+import com.project.domain.board.BoardVO;
+import com.project.domain.member.MemberVO;
+
+public class BoardLikeRepositoryTest extends AppTest {
+	
+	@Autowired
+	BoardLikeRepository boardLikeRepository;
+	
+//	@Ignore
+	@Test
+	public void boardLikeInsertTest() {
+		MemberVO memberVO = new MemberVO();
+		memberVO.setMemberId("writer");
+		
+		BoardVO boardVO = new BoardVO();
+		boardVO.setBno(1L);
+		
+		BoardLikeDTO boardLikeDTO = new BoardLikeDTO();
+		boardLikeDTO.setBno(1L);
+		boardLikeDTO.setMemberId("writer");
+		boardLikeRepository.boardLikeInsert(boardLikeDTO);
+	}
+
+}

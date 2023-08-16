@@ -1,21 +1,28 @@
 package com.project.repository.board;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.project.domain.board.BoardVO;
+import com.project.domain.common.Criteria;
 
-public interface BoardRepository {
+public interface BoardRepository { // 자유게시글 기능
 	
-	void boardInsert(BoardVO vo);
+	List<BoardVO> getList(Criteria criteria); 
 	
-	BoardVO boardRead(Long bno);
+	void boardInsert(BoardVO vo); // 자유게시글 작성
 	
-	Long boardDelete(Long bno);
+	BoardVO boardRead(Long bno); // 자유게시글 조회
 	
-	Long boardUpdate(BoardVO vo);
+	Long boardDelete(Long bno); // 자유게시글 영구삭제
 	
-	void boardUpdateCommentCnt(@Param("bno") Long bno, @Param("amount") int amount);
+	Long boardUpdate(BoardVO vo); // 자유게시글 수정
 	
-	void boardUpdateLikeCnt(@Param("bno") Long bno, @Param("amount") int amount);
+	int getTotalCount(Criteria criteria);
+	
+	void boardUpdateCommentCnt(@Param("bno") Long bno, @Param("amount") int amount); // 자유게시글 댓글 수
+	
+	void boardUpdateLikeCnt(@Param("bno") Long bno, @Param("amount") int amount); // 자유게시글 추천 수
 	
 }

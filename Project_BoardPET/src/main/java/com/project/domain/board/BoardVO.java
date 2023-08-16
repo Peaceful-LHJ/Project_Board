@@ -1,9 +1,15 @@
 package com.project.domain.board;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.project.domain.attach.BoardAttachVO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,15 +21,23 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Builder
+@EqualsAndHashCode
 public class BoardVO { // 자유게시글 정보
 	
 	private Long bno; // Baord Number
 	private String title;
 	private String content;
 	private String writer;
+	
 	private String commentCnt; // Comment Count : 댓글개수
 	private Long boardLikeCnt; // Board Like Count : 추천 개수
+	
+	@DateTimeFormat(pattern = "yyyy년MM월dd일 HH시mm분")
 	private LocalDateTime regDate; // Register Date : 작성일
+	
+	@DateTimeFormat(pattern = "yyyy년MM월dd일 HH시mm분")
 	private LocalDateTime updatetime; // 수정일
+	
+	private List<BoardAttachVO> boardAttachList; // 첨부파일
 	
 }

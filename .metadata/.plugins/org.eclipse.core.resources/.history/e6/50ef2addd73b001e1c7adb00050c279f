@@ -1,0 +1,17 @@
+package com.project.service.board;
+
+import java.util.List;
+
+import com.project.domain.board.BoardVO;
+
+public interface BoardService {
+	
+	void boardRegister(BoardVO boardVO);
+	
+	BoardVO boardRead(Long bno);
+	
+	boolean boardModify(BoardVO boardVO);
+	
+	boolean boardRemove(Long bno);
+	
+}

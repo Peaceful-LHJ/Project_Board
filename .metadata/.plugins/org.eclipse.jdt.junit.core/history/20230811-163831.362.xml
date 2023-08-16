@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="CommentReportRepositoryTest" project="Project_BoardPET" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.project.repository.report.CommentReportRepositoryTest" time="0.19">
-    <testcase name="commentReportInsertTest" classname="com.project.repository.report.CommentReportRepositoryTest" time="0.19"/>
-  </testsuite>
-</testrun>

@@ -1,0 +1,5 @@
+package com.project.repository.attach;
+
+public interface BoardAttachRepository {
+
+}

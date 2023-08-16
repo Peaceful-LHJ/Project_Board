@@ -1,0 +1,19 @@
+package com.project.domain.board.boardDEL;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@AllArgsConstructor	
+@NoArgsConstructor
+@ToString
+public class BoardLike_FromDelDTO { // 자유게시글 추천 정보
+	
+	private Long bno; // Board Number
+	private String memberId;
+	
+}

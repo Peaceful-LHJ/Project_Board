@@ -1,0 +1,32 @@
+package com.project.repository.attach;
+
+import static org.junit.Assert.*;
+
+import java.util.UUID;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.AppTest;
+import com.project.domain.attach.BoardAttachVO;
+
+public class BoardAttachRepositoryTest extends AppTest {
+	
+	@Autowired
+	BoardAttachRepository boardAttachRepository;
+	
+//	@Ignore
+	@Test
+	public void boardAttachInsertTest() {
+		BoardAttachVO boardAttachVO = new BoardAttachVO();
+		boardAttachVO.setBno(1L);
+		boardAttachVO.setFileName("test01.txt");
+		boardAttachVO.setFileType(false);
+		boardAttachVO.setUploadPath("c:/upload");
+		String uuid = UUID.randomUUID().toString();
+		boardAttachVO.setUuid(uuid);
+		boardAttachRepository.boardAttachInsert(boardAttachVO);
+	}
+
+}

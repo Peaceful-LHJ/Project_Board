@@ -14,4 +14,8 @@
     	select * from board_DEL where bno = #{bno}
     </select>
     
+    <delete id="boardDelDelete">
+    	delete from Board_DEL where DELbno = #{DELbno}
+    </delete>
+    
 </mapper>

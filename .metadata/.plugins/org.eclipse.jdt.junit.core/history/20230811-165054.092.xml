@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="MemberReportRepositoryTest" project="Project_BoardPET" tests="2" started="2" failures="0" errors="0" ignored="1">
-  <testsuite name="com.project.repository.report.MemberReportRepositoryTest" time="0.34">
-    <testcase name="memberReportReadTest" classname="com.project.repository.report.MemberReportRepositoryTest" time="0.34"/>
-    <testcase name="memberReportInsertTest" classname="com.project.repository.report.MemberReportRepositoryTest" time="0.0" ignored="true"/>
-  </testsuite>
-</testrun>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="AnswerDelRepositoryTest" project="Project_BoardPET" tests="5" started="5" failures="0" errors="0" ignored="4">
-  <testsuite name="com.project.repository.board.boardDEL.AnswerDelRepositoryTest" time="0.18">
-    <testcase name="answerDelDeleteTest" classname="com.project.repository.board.boardDEL.AnswerDelRepositoryTest" time="0.178"/>
-    <testcase name="answerDelReadTest" classname="com.project.repository.board.boardDEL.AnswerDelRepositoryTest" time="0.0" ignored="true"/>
-    <testcase name="NonAnswerDelInsertTest" classname="com.project.repository.board.boardDEL.AnswerDelRepositoryTest" time="0.0" ignored="true"/>
-    <testcase name="NonAnswerDelReadTest" classname="com.project.repository.board.boardDEL.AnswerDelRepositoryTest" time="0.0" ignored="true"/>
-    <testcase name="answerDelInsertTest" classname="com.project.repository.board.boardDEL.AnswerDelRepositoryTest" time="0.0" ignored="true"/>
-  </testsuite>
-</testrun>
