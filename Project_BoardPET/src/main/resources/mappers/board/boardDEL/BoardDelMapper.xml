@@ -7,7 +7,15 @@
 	<insert id="boardDelInsert">
     	insert into board_DEL (DELbno, bno, title, content, writer, regDate, updateDate)
 		select seq_board_DEL.nextval, bno, title, content, writer, regDate, updateDate
-		from board where bno = #{bno}
+		from board
+		where bno = #{bno}
+    </insert>
+    
+    <insert id="boardDelInsertListByName">
+    	insert into board_DEL(DELbno, bno, title, content, writer, regDate, updateDate)
+	    select seq_board_DEL.nextval, bno, title, content, writer, regDate, updateDate
+	    from board
+	    where writer = #{memberName}
     </insert>
     
     <select id="boardDelRead" resultType="BoardDelVO">

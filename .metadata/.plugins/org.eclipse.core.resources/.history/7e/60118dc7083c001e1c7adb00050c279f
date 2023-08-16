@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.repository.board.boardDEL.BoardDelRepository">
+	
+	<insert id="boardDelInsert">
+    	insert into board_DEL (DELbno, bno, title, content, writer, regDate, updateDate)
+		select seq_board_DEL.nextval, bno, title, content, writer, regDate, updateDate
+		from board
+		where bno = #{bno}
+    </insert>
+    
+    <insert id="boardDelInsertListByName">
+    	insert into board_DEL(DELbno, bno, title, content, writer, regDate, updateDate)
+	    select seq_board_DEL.nextval, bno, title, content, writer, regDate, updateDate
+	    from board
+	    where writer = '작성자';
+    </insert>
+    
+    <select id="boardDelRead" resultType="BoardDelVO">
+    	select * from board_DEL where bno = #{bno}
+    </select>
+    
+    <delete id="boardDelDelete">
+    	delete from Board_DEL where DELbno = #{DELbno}
+    </delete>
+    
+</mapper>

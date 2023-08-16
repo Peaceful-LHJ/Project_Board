@@ -13,6 +13,10 @@
     	select * from QUESboard where QUESbno = #{QUESbno}
     </select>
     
+    <select id="questionBoardReadByName" resultType="questionBoardVO">
+    	select * from QUESboard where writer = #{memberName}
+    </select>
+    
     <delete id="questionBoardDelete">
     	delete from QUESboard where QUESbno = #{QUESbno}
     </delete>

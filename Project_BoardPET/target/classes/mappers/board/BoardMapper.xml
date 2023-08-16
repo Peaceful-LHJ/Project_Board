@@ -54,8 +54,16 @@
     	select * from board where bno = #{bno}
     </select>
     
+    <select id="boardReadByName" resultType="boardVO">
+    	select * from board where writer = #{memberName}
+    </select>
+    
     <delete id="boardDelete">
     	delete from board where bno = #{bno}
+    </delete>
+    
+    <delete id="boardDeleteListByName">
+    	delete from board where writer = #{memberName}
     </delete>
     
 	<update id="boardUpdate">

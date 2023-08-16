@@ -1,5 +1,7 @@
 package com.project.repository.board;
 
+import java.util.List;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +54,12 @@ public class BoardRepositoryTest extends AppTest {
 		Long count = boardRepository.boardUpdate(vo);
 		log.info("수정된 게시물 : " + count);
 	}
-
+	
+	@Ignore
+	@Test
+	public void boardReadByNameTest() {
+		List<BoardVO> boardReadByName = boardRepository.boardReadByName("작성자");
+		log.info(boardReadByName);
+	}
+	
 }

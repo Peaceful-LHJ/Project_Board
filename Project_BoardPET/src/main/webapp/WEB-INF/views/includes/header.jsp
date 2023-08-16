@@ -27,7 +27,7 @@
 	let csrfHeaderName = '${_csrf.headerName}';
 	let csrfTokenValue = '${_csrf.token}';
 	
-	let memberId = '${authInfo.memberId}'; // 인증되 사용자의 계정
+	let memberId = '${authInfo.memberId}'; // 인증된 사용자의 계정
 	let auth = '${authInfo.authList}'; // 인증된 사용자의 권한
 	
 	$(document).ajaxSend(function(e, xhr, options){

@@ -1,0 +1,5 @@
+package com.project.controller.common;
+
+public class HomeController {
+
+}

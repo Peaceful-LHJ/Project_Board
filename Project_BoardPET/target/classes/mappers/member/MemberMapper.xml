@@ -41,9 +41,17 @@
 		where memberId = #{memberId}
 	</update>
 	
+	<delete id="memberDelete">
+		delete from member where memberId = #{memberId}
+	</delete>
+	
 	<select id="selectById" resultType="memberVO">
 		select memberId, memberName, email, memberPwd
 		from member where memberId=#{memberId}
+	</select>
+	
+	<select id="selectByIdForName" resultType="String">
+		select memberName from member where memberId = #{memberId}
 	</select>
 	
 	<update id="changePassword">

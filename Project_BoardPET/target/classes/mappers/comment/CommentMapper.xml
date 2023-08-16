@@ -19,6 +19,10 @@
 		select * from tbl_comment where commentNum = #{commentNum}
 	</select>
 	
+	<select id="commentReadByName" resultType="CommentVO">
+		select * from tbl_comment where writer = #{memberName}
+	</select>
+	
 	<select id="boardCommentRead" resultType="CommentVO">
 		select * from tbl_comment where bno = #{bno}
 	</select>

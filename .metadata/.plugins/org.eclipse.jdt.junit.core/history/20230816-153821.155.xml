@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MemberRepositoryTest" project="Project_BoardPET" tests="2" started="2" failures="0" errors="0" ignored="1">
+  <testsuite name="com.project.repository.member.MemberRepositoryTest" time="2.877">
+    <testcase name="memberReadTest" classname="com.project.repository.member.MemberRepositoryTest" time="0.001" ignored="true"/>
+    <testcase name="selectByIdForNameTest" classname="com.project.repository.member.MemberRepositoryTest" time="0.322"/>
+  </testsuite>
+</testrun>

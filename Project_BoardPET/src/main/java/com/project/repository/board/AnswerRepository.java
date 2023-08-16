@@ -10,6 +10,8 @@ public interface AnswerRepository {
 	
 	AnswerVO answerRead(Long answerNum);
 	
+	List<AnswerVO> answerReadByName(String memberName); // 해당 회원이름의 사용자가 작성한 모든 답변글 조회
+	
 	List<AnswerVO> answerListRead(Long QUESbno); // 해당 질문글의 모든 답글 모기
 	
 	Long answerUpdate(AnswerVO vo);

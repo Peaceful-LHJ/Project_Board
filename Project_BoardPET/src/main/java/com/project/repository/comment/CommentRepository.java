@@ -12,6 +12,7 @@ public interface CommentRepository {
 	
 	
 	CommentVO commentRead(Long commentNum); // 댓글 단독 검색
+	List<CommentVO> commentReadByName(String memberName); // 해당 회원 이름의 사용자가 작성한 모든 댓글 조회
 	
 	List<CommentVO> boardCommentRead(Long bno); // 자유게시글 댓글 조회
 	

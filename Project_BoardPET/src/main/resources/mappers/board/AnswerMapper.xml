@@ -13,6 +13,10 @@
 		select * from answer where answerNum = #{answerNum}
 	</select>
 	
+	<select id="answerReadByName" resultType="AnswerVO">
+		select * from answer where writer = #{memberName}
+	</select>
+	
 	<select id="answerListRead" resultType="AnswerVO">
 		select * from answer where QUESbno = #{QUESbno}
 	</select>

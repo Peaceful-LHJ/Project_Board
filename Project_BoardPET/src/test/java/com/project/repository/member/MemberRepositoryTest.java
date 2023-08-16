@@ -22,4 +22,11 @@ public class MemberRepositoryTest extends AppTest {
 		System.out.println(vo);
 	}
 	
+	@Ignore
+	@Test
+	public void selectByIdForNameTest() {
+		String selectByIdForName = memberRepository.selectByIdForName("writer");
+		log.info(selectByIdForName);
+	}
+	
 }

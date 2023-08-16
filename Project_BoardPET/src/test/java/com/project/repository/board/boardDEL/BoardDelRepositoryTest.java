@@ -1,3 +1,4 @@
+
 package com.project.repository.board.boardDEL;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public class BoardDelRepositoryTest extends AppTest {
 	@Autowired
 	BoardRepository boardRepository;
 	
-//	@Ignore
+	@Ignore
 	@Test
 	public void boardDelInsertTest() { // 자유게시글 삭제 테이블 이동 및 해당 자유게시글 테이블 자료 처리테스트
 		log.info("===== 테스트 시작 =====");
@@ -93,6 +94,12 @@ public class BoardDelRepositoryTest extends AppTest {
 	public void boardDelReadTest() {
 		BoardDelVO boardDelRead = boardDelRepository.boardDelRead(1L);
 		log.info(boardDelRead);
+	}
+	
+	@Ignore
+	@Test
+	public void boardDelInsertListByNameTest() {
+		boardDelRepository.boardDelInsertListByName("작성자");
 	}
 	
 }

@@ -15,7 +15,10 @@ public interface BoardRepository { // 자유게시글 기능
 	
 	BoardVO boardRead(Long bno); // 자유게시글 조회
 	
+	List<BoardVO> boardReadByName(String memberName); // 회원 이름으로 해당 회원이 작성한 모든 자유게시글 조회
+	
 	Long boardDelete(Long bno); // 자유게시글 영구삭제
+	Long boardDeleteListByName(String memberName); // 해당 회원의 이름으로 작성된 모든 자유게시글 영구삭제
 	
 	Long boardUpdate(BoardVO vo); // 자유게시글 수정
 	

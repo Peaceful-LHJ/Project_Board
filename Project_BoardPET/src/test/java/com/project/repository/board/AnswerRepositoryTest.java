@@ -73,5 +73,12 @@ public class AnswerRepositoryTest extends AppTest { // 답글 repository 테스�
 	public void answerListDeleteTest() { // 해당 질문글의 모든 답글 영구삭제 테스트
 		answerRepository.answerListDelete(1L);
 	}
+	
+	@Ignore
+	@Test
+	public void answerReadByNameTest() {
+		List<AnswerVO> answerReadByName = answerRepository.answerReadByName("작성자");
+		log.info(answerReadByName);
+	}
 
 }
