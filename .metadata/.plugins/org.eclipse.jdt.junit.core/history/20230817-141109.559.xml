@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MemberServiceImplTest" project="Project_BoardPET" tests="6" started="6" failures="0" errors="0" ignored="5">
+  <testsuite name="com.project.service.member.MemberServiceImplTest" time="2.995">
+    <testcase name="memberJoinTest" classname="com.project.service.member.MemberServiceImplTest" time="0.0" ignored="true"/>
+    <testcase name="memberWithdrawTest" classname="com.project.service.member.MemberServiceImplTest" time="0.408"/>
+    <testcase name="memberReadTest" classname="com.project.service.member.MemberServiceImplTest" time="0.0" ignored="true"/>
+    <testcase name="changePasswordTest" classname="com.project.service.member.MemberServiceImplTest" time="0.0" ignored="true"/>
+    <testcase name="memberModifyTest" classname="com.project.service.member.MemberServiceImplTest" time="0.001" ignored="true"/>
+    <testcase name="processingBoardDataTest" classname="com.project.service.member.MemberServiceImplTest" time="0.0" ignored="true"/>
+  </testsuite>
+</testrun>

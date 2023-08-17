@@ -1,0 +1,209 @@
+package com.project.service.member;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.project.AppTest;
+import com.project.domain.board.AnswerVO;
+import com.project.domain.comment.CommentVO;
+import com.project.domain.member.MemberVO;
+import com.project.repository.board.AnswerRepository;
+import com.project.repository.board.BoardRepository;
+import com.project.repository.board.QuestionBoardRepository;
+import com.project.repository.board.boardDEL.AnswerDelRepository;
+import com.project.repository.board.boardDEL.BoardDelRepository;
+import com.project.repository.board.boardDEL.QuestionBoardDelRepository;
+import com.project.repository.comment.CommentRepository;
+import com.project.repository.comment.commentDEL.CommentDelRepository;
+import com.project.repository.member.MemberRepository;
+import com.project.repository.member.memberDEL.MemberDelRepository;
+
+public class MemberServiceImplTest extends AppTest {
+	
+	@Autowired
+	MemberRepository memberRepository;
+	
+	@Autowired
+	MemberDelRepository memberDelRepository;
+	
+	@Autowired
+	MemberService memberService;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	BoardRepository boardRepository;
+	
+	@Autowired
+	BoardDelRepository boardDelRepository;
+	
+	@Autowired
+	QuestionBoardRepository questionBoardRepository;
+	
+	@Autowired
+	QuestionBoardDelRepository questionBoardDelRepository;
+	
+	@Autowired
+	AnswerRepository answerRepository;
+	
+	@Autowired
+	AnswerDelRepository answerDelRepository;
+	
+	@Autowired
+	CommentRepository commentRepository;
+	
+	@Autowired
+	CommentDelRepository commentDelRepository;
+	
+	@Ignore
+	@Test
+	public void memberJoinTest() { // 회원가입 테스트
+		MemberVO vo = new MemberVO();
+		vo.setMemberId("user");
+		vo.setMemberPwd("1234");
+		vo.setMemberName("사용자");
+		vo.setEmail("user@test.com");
+		memberService.memberJoin(vo);
+	}
+	
+	@Ignore
+	@Test
+	public void memberModifyTest() { // 회원 정보 수정 테스트
+		MemberVO selectById = memberRepository.selectById("admin");
+		if(selectById != null) {
+			selectById.setMemberName("관리자");
+			memberService.memberModify(selectById);
+		}
+		System.out.println("존재하지 않는 회원입니다.");
+	}
+	
+	@Ignore
+	@Test
+	public void memberReadTest() { // 회원 정보 보기 테스트
+		MemberVO memberRead = memberService.memberRead("user");
+		System.out.println(memberRead);
+	}
+	
+	@Ignore
+	@Test
+	public void changePasswordTest() {
+		String memberId = "user";
+		String newPassword = "1111";
+		String currentPassword = "1234";
+		
+		MemberVO vo = new MemberVO();
+		vo.setMemberPwd(passwordEncoder.encode(currentPassword));
+		
+		Map<String, String> memberMap = new HashMap<>();
+		memberMap.put("memberId", memberId);
+		memberMap.put("newPassword", newPassword);
+		memberMap.put("currentPassword", currentPassword);
+		
+		memberService.changePassword(memberMap);
+		
+	}
+	
+	@Ignore
+	@Test
+	public void processingBoardDataTest() { // 데이터 반복문 처리 테스트
+		List<Long> selectBoardBnoByName = boardRepository.selectBoardBnoByName("작성자");
+		selectBoardBnoByName.forEach(bno -> {
+			List<CommentVO> boardCommentRead = commentRepository.boardCommentRead(bno); // 게시물의 댓글유무 조회
+			
+			if(boardCommentRead.isEmpty()) { // 댓글이 없는 경우
+				boardDelRepository.boardDelInsert(bno); // 게시물 삭제테이블 이동
+				boardRepository.boardDelete(bno); // 해당 게시글 영구삭제
+			}
+			if(boardCommentRead != null) { // 댓글이 있는 경우
+				commentDelRepository.NonBoardCommentDelInsert(bno); // 해당 게시글의 댓글 가삭제 테이블 이동
+				commentRepository.commentListFromBoardDelete(bno); // 해당 게시글의 댓글 영구삭제 실시
+				boardDelRepository.boardDelInsert(bno); // 게시글 삭제테이블 이동
+				boardRepository.boardDelete(bno); // 해당 게시글 영구삭제
+			}
+		});
+	}
+	
+	protected void processingBoardDataDueToMemberWithdraw(Long bno) { // 회원 탈퇴하여 게시물 삭제처리로 인한 해당 회원의 자유게시물을 참조하는 데이터 처리
+		List<CommentVO> boardCommentRead = commentRepository.boardCommentRead(bno); // 게시물의 댓글유무 조회
+		
+		if(boardCommentRead.isEmpty()) { // 댓글이 없는 경우
+			boardDelRepository.boardDelInsert(bno); // 게시물 삭제테이블 이동
+			boardRepository.boardDelete(bno); // 해당 게시글 영구삭제
+		}
+		if(boardCommentRead != null) { // 댓글이 있는 경우
+			commentDelRepository.NonBoardCommentDelInsert(bno); // 해당 게시글의 댓글 가삭제 테이블 이동
+			commentRepository.commentListFromBoardDelete(bno); // 해당 게시글의 댓글 영구삭제 실시
+			boardDelRepository.boardDelInsert(bno); // 게시글 삭제테이블 이동
+			boardRepository.boardDelete(bno); // 해당 게시글 영구삭제
+		}
+	}
+	
+	protected void processingQuestionBoardDataDueToMemberWithdraw(Long QUESbno) {
+		List<CommentVO> questionBoardCommentRead = commentRepository.questionBoardCommentRead(QUESbno);
+		List<AnswerVO> answerListRead = answerRepository.answerListRead(QUESbno);
+		
+		if(questionBoardCommentRead.isEmpty() && answerListRead.isEmpty()) { // 해당 질문글의 댓글과 답글이 모두 없는 경우
+			questionBoardDelRepository.questionBoardDelInsert(QUESbno); // 해당 게시물 삭제테이블 이동
+			questionBoardRepository.questionBoardDelete(QUESbno); // 해당 게시글 영구삭제
+		} else {
+			commentDelRepository.NonQuestionBoardCommentDelInsert(QUESbno);
+			commentRepository.commentListFromQuestionBoardDelete(QUESbno);
+			answerDelRepository.NonAnswerDelInsert(QUESbno);
+			answerRepository.answerListDelete(QUESbno);
+			questionBoardDelRepository.questionBoardDelInsert(QUESbno);
+			questionBoardRepository.questionBoardDelete(QUESbno);
+		}
+	}
+	
+	@Transactional
+	@Ignore
+	@Test
+	public void memberWithdrawTest() { // 회원 탈퇴 서비스 테스트
+		String memberId = "writer";
+		String userName = memberRepository.selectByIdForName(memberId); // 해당 아이디의 회원 이름 추출
+		
+		// 회원 삭제전 무결성 검사 (작성한 자유게시글, 질문글, 답글, 댓글 유무 조회 -> 모두 작성되지 않은 경우)
+		if(boardRepository.boardReadByName(userName).isEmpty()
+				&& questionBoardRepository.questionBoardReadByName(userName).isEmpty()
+				&& answerRepository.answerReadByName(userName).isEmpty()
+				&& commentRepository.commentReadByName(userName).isEmpty()) {
+			
+			memberDelRepository.memberDelInsertByName(userName);
+			memberRepository.memberDelete(memberId); // 회원 탈퇴 처리
+			
+		} else {
+			commentDelRepository.allCommentDelInsertListByName(userName);
+			commentRepository.allCommentDeleteByName(userName);
+			
+			answerDelRepository.answerDelInsertByName(userName);
+			answerRepository.answerListDeleteByName(userName);
+			
+			List<Long> boardNumberListOfTheWithrawMember = boardRepository.selectBoardBnoByName(userName);
+			boardNumberListOfTheWithrawMember.forEach(bno -> {
+				processingBoardDataDueToMemberWithdraw(bno);
+			});
+			boardDelRepository.boardDelInsertListByName(userName);
+			boardRepository.boardDeleteListByName(userName);
+			
+			List<Long> questionBoardNumberListOfTheWithdrawMember = questionBoardRepository.selectQuestionBoardBnoByName(userName);
+			questionBoardNumberListOfTheWithdrawMember.forEach(QUESbno -> {
+				processingQuestionBoardDataDueToMemberWithdraw(QUESbno);
+			});
+			questionBoardDelRepository.questionBoardDelInsertByName(userName);
+			questionBoardRepository.questionBoardDeleteListByName(userName);
+			
+			
+			memberDelRepository.memberDelInsertByName(userName);
+			memberRepository.memberDelete(memberId); // 회원 탈퇴 처리
+		}
+	}
+	
+}

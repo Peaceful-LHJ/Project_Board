@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.project.domain.board.AnswerVO;
 import com.project.domain.comment.CommentVO;
 import com.project.domain.member.MemberAuthVO;
 import com.project.domain.member.MemberVO;
@@ -112,11 +113,23 @@ public class MemberServiceImpl implements MemberService { // 회원 서비스 �
 		}
 	}
 	
-	protected void processingQuesionBoardDataDueToMemberWithdraw(Long QUESbno) {
+	protected void processingQuestionBoardDataDueToMemberWithdraw(Long QUESbno) {
+		List<CommentVO> questionBoardCommentRead = commentRepository.questionBoardCommentRead(QUESbno);
+		List<AnswerVO> answerListRead = answerRepository.answerListRead(QUESbno);
 		
+		if(questionBoardCommentRead.isEmpty() && answerListRead.isEmpty()) { // 해당 질문글의 댓글과 답글이 모두 없는 경우
+			questionBoardDelRepository.questionBoardDelInsert(QUESbno); // 해당 게시물 삭제테이블 이동
+			questionBoardRepository.questionBoardDelete(QUESbno); // 해당 게시글 영구삭제
+		} else {
+			commentDelRepository.NonQuestionBoardCommentDelInsert(QUESbno);
+			commentRepository.commentListFromQuestionBoardDelete(QUESbno);
+			answerDelRepository.NonAnswerDelInsert(QUESbno);
+			answerRepository.answerListDelete(QUESbno);
+			questionBoardDelRepository.questionBoardDelInsert(QUESbno);
+			questionBoardRepository.questionBoardDelete(QUESbno);
+		}
 	}
 	
-	@Transactional
 	@Override
 	public void memberWithdraw(String memberId) { // 회원 탈퇴 서비스
 		String userName = memberRepository.selectByIdForName(memberId); // 해당 아이디의 회원 이름 추출
@@ -144,6 +157,10 @@ public class MemberServiceImpl implements MemberService { // 회원 서비스 �
 			boardDelRepository.boardDelInsertListByName(userName);
 			boardRepository.boardDeleteListByName(userName);
 			
+			List<Long> questionBoardNumberListOfTheWithdrawMember = questionBoardRepository.selectQuestionBoardBnoByName(userName);
+			questionBoardNumberListOfTheWithdrawMember.forEach(QUESbno -> {
+				processingQuestionBoardDataDueToMemberWithdraw(QUESbno);
+			});
 			questionBoardDelRepository.questionBoardDelInsertByName(userName);
 			questionBoardRepository.questionBoardDeleteListByName(userName);
 			
