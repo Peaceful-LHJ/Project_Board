@@ -1,6 +1,7 @@
 package com.project.config;
 
 import java.io.IOException;
+import java.util.Properties;
 
 import javax.sql.DataSource;
 
@@ -11,11 +12,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -25,6 +28,7 @@ import com.zaxxer.hikari.HikariDataSource;
 @MapperScan("com.project.repository")
 @PropertySource(value = "classpath:database/db.properties")
 @EnableTransactionManagement
+@Import(SecurityConfig.class)
 public class RootConfig {
 	
 	@Value("${db.driver}")
@@ -80,6 +84,26 @@ public class RootConfig {
 	@Bean
 	public DataSourceTransactionManager transactionManager() {
 		return new DataSourceTransactionManager(dataSource());
+	}
+	
+	@Bean
+	public JavaMailSenderImpl mailSender() {
+	    JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+	    mailSender.setHost("smtp.naver.com");
+	    mailSender.setPort(465);
+	    mailSender.setUsername("fun4141@naver.com");
+	    mailSender.setPassword("Lhj43147570*");
+
+	    Properties properties = new Properties();
+	    properties.put("mail.transport.protocol", "smtp");
+	    properties.put("mail.smtp.auth", "true");
+	    properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+	    properties.put("mail.smtp.starttls.enable", "true");
+	    properties.put("mail.debug", "false");
+	    properties.put("mail.smtp.ssl.trust", "smtp.naver.com");
+	    properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+	    mailSender.setJavaMailProperties(properties);
+	    return mailSender;
 	}
 	
 }

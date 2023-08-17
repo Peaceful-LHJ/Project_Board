@@ -1,0 +1,25 @@
+package com.project.controller.member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.project.repository.member.MemberRepository;
+import com.project.service.member.MemberService;
+
+@Controller
+public class MemberController {
+	
+	@Autowired
+	MemberService memberService;
+	
+	@Autowired
+	MemberRepository memberRepository;
+	
+	// 404 에러 처리
+	@GetMapping("/accessDenied")
+	public String accessDenided() {
+		return "/accessError";
+	}
+	
+}

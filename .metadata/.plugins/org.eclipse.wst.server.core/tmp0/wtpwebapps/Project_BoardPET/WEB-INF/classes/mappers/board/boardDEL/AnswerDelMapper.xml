@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.repository.board.boardDEL.AnswerDelRepository">
+	
+	<insert id="answerDelInsert">
+    	insert into answer_DEL (DELanswerNum, answerNum, QUESbno, content, writer, regDate, updateDate)
+		select seq_answer_DEL.nextval, answerNum, QUESbno, content, writer, regDate, updateDate
+		from answer where answerNum = #{answerNum}
+    </insert>
+    
+	<insert id="answerDelInsertByName">
+    	insert into answer_DEL (DELanswerNum, answerNum, QUESbno, content, writer, regDate, updateDate)
+		select seq_answer_DEL.nextval, answerNum, QUESbno, content, writer, regDate, updateDate
+		from answer where writer = #{memberName}
+    </insert>
+    
+	<insert id="NonAnswerDelInsert">
+    	insert into answer_FromDEL (fromDELanswerNum, answerNum, QUESbno, content, writer, regDate, updateDate)
+		select seq_answer_FromDEL.nextval, answerNum, QUESbno, content, writer, regDate, updateDate
+		from answer where QUESbno = #{QUESbno}
+    </insert>
+    
+	<select id="answerDelRead" resultType="AnswerDelVO">
+    	select * from answer_DEL where DELanswerNum = #{DELanswerNum}
+    </select>
+    
+	<select id="NonAnswerDelRead" resultType="AnswerFromDelVO">
+    	select * from answer_FromDEL where fromDELanswerNum = #{fromDELanswerNum}
+    </select>
+    
+    <select id="NonAnswerListDelRead">
+    	select * from answer)FromDEL where QUESbno = #{QUESbno}
+    </select>
+    
+    <delete id="answerDelDelete">
+    	delete from answer_DEL where DELanswerNum = #{DELanswerNum}
+    </delete>
+    
+    <delete id="NonAnswerDelDelete">
+    	delete from answer_FromDEL where fromDELanswerNum = #{fromDELanswerNum}
+    </delete>
+	
+</mapper>

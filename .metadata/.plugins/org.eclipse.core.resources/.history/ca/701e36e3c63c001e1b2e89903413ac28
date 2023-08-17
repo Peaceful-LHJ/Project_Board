@@ -1,0 +1,14 @@
+package com.project.controller.member;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class MemberController {
+	
+	// 404 에러 처리
+	@GetMapping("/accessDenied")
+	public String accessDenided() {
+		return "/accessError";
+	}
+	
+}

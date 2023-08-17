@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../includes/header.jsp"%>
+<style>
+.footer{ position: absolute; bottom: 0; width: 100%;}
+.login_area {position: relative; top:100px;}
+</style>
+<div class="container my-5">
+	<div class="row login_area">
+		<div class="col-5 mx-auto">
+			<h1>로그인</h1>
+			<form method="post" action="${ctxPath}/user/login">
+				<div class="form-group">
+					<input type="text" class="form-control" name="memberId" placeholder="아이디" value="${memberId}">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control"  name="memberPwd" placeholder="비밀번호">
+				</div>
+				<label>
+					<input type="checkbox" name="remember-me" class="mr-2">Remember-Me
+				</label>
+				<button class="form-control btn btn-outline-primary" >로그인</button>
+				<a href="${ctxPath}/findMemberInfo">아이디/비밀번호찾기</a>
+				<c:if test="${not empty loginFail}">
+					<p style="color: red; font-size: 10px">${loginFail}</p>
+				</c:if>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			</form>
+		</div>
+	</div>
+</div>
+
+<%@ include file="../includes/footer.jsp"%>

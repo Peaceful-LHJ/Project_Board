@@ -1,9 +1,0 @@
-package com.project.repository.comment;
-
-import com.project.domain.comment.commentDEL.CommentDelVO;
-
-public interface CommentDelRepository {
-	
-	CommentDelVO boardCommentDelInsert(Long commentNum);
-	
-}

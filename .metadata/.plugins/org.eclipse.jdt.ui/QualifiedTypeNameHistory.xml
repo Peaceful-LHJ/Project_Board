@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.project.domain.board.QuestionBoardVO"/>
-    <fullyQualifiedTypeName name="com.project.repository.board.QuestionBoardDelRepository"/>
-    <fullyQualifiedTypeName name="com.project.repository.board.NoticeBoardRepository"/>
-    <fullyQualifiedTypeName name="com.project.domain.board.NoticeBoardVO"/>
-    <fullyQualifiedTypeName name="com.project.domain.board.boardDEL.NoticeBoardDelVO"/>
-    <fullyQualifiedTypeName name="com.project.repository.board.NoticeBoardDelRepository"/>
     <fullyQualifiedTypeName name="com.project.repository.board.InquiryBoardRepository"/>
     <fullyQualifiedTypeName name="com.project.domain.board.InquiryBoardVO"/>
     <fullyQualifiedTypeName name="com.project.domain.board.AnswerVO"/>
@@ -19,11 +13,8 @@
     <fullyQualifiedTypeName name="com.project.domain.report.CommentReportVO"/>
     <fullyQualifiedTypeName name="com.project.repository.report.MemberReportRepository"/>
     <fullyQualifiedTypeName name="com.project.domain.report.MemberReportVO"/>
-    <fullyQualifiedTypeName name="com.project.AppTest"/>
     <fullyQualifiedTypeName name="java.util.UUID"/>
     <fullyQualifiedTypeName name="com.project.domain.attach.QuestionBoardReportAttachVO"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="lombok.extern.log4j.Log4j"/>
     <fullyQualifiedTypeName name="com.project.repository.board.BoardLikeRepository"/>
     <fullyQualifiedTypeName name="com.project.repository.attach.BoardAttachRepository"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
@@ -41,7 +32,6 @@
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="com.project.domain.common.Criteria"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
     <fullyQualifiedTypeName name="org.springframework.security.access.AccessDeniedException"/>
     <fullyQualifiedTypeName name="com.project.domain.board.BoardLikeDTO"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
@@ -53,11 +43,21 @@
     <fullyQualifiedTypeName name="com.project.repository.comment.CommentDelRepository"/>
     <fullyQualifiedTypeName name="com.project.repository.board.AnswerRepository"/>
     <fullyQualifiedTypeName name="com.project.repository.board.boardDEL.AnswerDelRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.project.domain.member.MemberVO"/>
     <fullyQualifiedTypeName name="com.project.domain.board.BoardVO"/>
-    <fullyQualifiedTypeName name="org.junit.Ignore"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.project.domain.board.boardDEL.BoardDelVO"/>
+    <fullyQualifiedTypeName name="com.project.domain.member.memberDEL.MemberDelVO"/>
+    <fullyQualifiedTypeName name="com.project.AppTest"/>
+    <fullyQualifiedTypeName name="com.project.repository.member.memberDEL.MemberDelRepository"/>
     <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="org.junit.Ignore"/>
+    <fullyQualifiedTypeName name="com.project.service.member.MemberService"/>
+    <fullyQualifiedTypeName name="com.project.repository.member.MemberRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
+    <fullyQualifiedTypeName name="lombok.extern.log4j.Log4j"/>
+    <fullyQualifiedTypeName name="java.util.Properties"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 </qualifiedTypeNameHistroy>

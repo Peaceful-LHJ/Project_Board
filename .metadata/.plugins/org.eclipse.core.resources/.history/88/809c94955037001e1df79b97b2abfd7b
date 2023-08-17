@@ -1,9 +1,0 @@
-package com.project.repository.board;
-
-public interface QuestionBoardDelRepository {
-	
-	Long questionBoardDelInsert(Long QUESbno); // 삭제된 질문게시물 추가
-	
-	
-	
-}
