@@ -1,5 +1,6 @@
 package com.project.service.member;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.project.domain.comment.CommentVO;
 import com.project.domain.member.MemberAuthVO;
 import com.project.domain.member.MemberVO;
 import com.project.exception.PasswordMisMatchException;
@@ -16,16 +18,20 @@ import com.project.repository.board.QuestionBoardRepository;
 import com.project.repository.board.boardDEL.AnswerDelRepository;
 import com.project.repository.board.boardDEL.BoardDelRepository;
 import com.project.repository.board.boardDEL.QuestionBoardDelRepository;
-import com.project.repository.comment.CommentDelRepository;
 import com.project.repository.comment.CommentRepository;
+import com.project.repository.comment.commentDEL.CommentDelRepository;
 import com.project.repository.member.MemberAuthRepository;
 import com.project.repository.member.MemberRepository;
+import com.project.repository.member.memberDEL.MemberDelRepository;
 
 @Service
 public class MemberServiceImpl implements MemberService { // 회원 서비스 구현체
 	
 	@Autowired
 	MemberRepository memberRepository;
+	
+	@Autowired
+	MemberDelRepository memberDelRepository;
 	
 	@Autowired
 	MemberAuthRepository memberAuthRepository;
@@ -90,7 +96,27 @@ public class MemberServiceImpl implements MemberService { // 회원 서비스 �
 		}
 		memberRepository.changePassword(memberId, passwordEncoder.encode(newPassword));
 	}
-
+	
+	protected void processingBoardDataDueToMemberWithdraw(Long bno) { // 회원 탈퇴하여 게시물 삭제처리로 인한 해당 회원의 자유게시물을 참조하는 데이터 처리
+		List<CommentVO> boardCommentRead = commentRepository.boardCommentRead(bno); // 게시물의 댓글유무 조회
+		
+		if(boardCommentRead.isEmpty()) { // 댓글이 없는 경우
+			boardDelRepository.boardDelInsert(bno); // 게시물 삭제테이블 이동
+			boardRepository.boardDelete(bno); // 해당 게시글 영구삭제
+		}
+		if(boardCommentRead != null) { // 댓글이 있는 경우
+			commentDelRepository.NonBoardCommentDelInsert(bno); // 해당 게시글의 댓글 가삭제 테이블 이동
+			commentRepository.commentListFromBoardDelete(bno); // 해당 게시글의 댓글 영구삭제 실시
+			boardDelRepository.boardDelInsert(bno); // 게시글 삭제테이블 이동
+			boardRepository.boardDelete(bno); // 해당 게시글 영구삭제
+		}
+	}
+	
+	protected void processingQuesionBoardDataDueToMemberWithdraw(Long QUESbno) {
+		
+	}
+	
+	@Transactional
 	@Override
 	public void memberWithdraw(String memberId) { // 회원 탈퇴 서비스
 		String userName = memberRepository.selectByIdForName(memberId); // 해당 아이디의 회원 이름 추출
@@ -101,11 +127,29 @@ public class MemberServiceImpl implements MemberService { // 회원 서비스 �
 				&& answerRepository.answerReadByName(userName).isEmpty()
 				&& commentRepository.commentReadByName(userName).isEmpty()) {
 			
+			memberDelRepository.memberDelInsertByName(userName);
 			memberRepository.memberDelete(memberId); // 회원 탈퇴 처리
 			
 		} else {
-			boardDelRepository.boardDelInsertListByName(userName);
+			commentDelRepository.allCommentDelInsertListByName(userName);
+			commentRepository.allCommentDeleteByName(userName);
 			
+			answerDelRepository.answerDelInsertByName(userName);
+			answerRepository.answerListDeleteByName(userName);
+			
+			List<Long> boardNumberListOfTheWithrawMember = boardRepository.selectBoardBnoByName(userName);
+			boardNumberListOfTheWithrawMember.forEach(bno -> {
+				processingBoardDataDueToMemberWithdraw(bno);
+			});
+			boardDelRepository.boardDelInsertListByName(userName);
+			boardRepository.boardDeleteListByName(userName);
+			
+			questionBoardDelRepository.questionBoardDelInsertByName(userName);
+			questionBoardRepository.questionBoardDeleteListByName(userName);
+			
+			
+			memberDelRepository.memberDelInsertByName(userName);
+			memberRepository.memberDelete(memberId); // 회원 탈퇴 처리
 		}
 	}
 

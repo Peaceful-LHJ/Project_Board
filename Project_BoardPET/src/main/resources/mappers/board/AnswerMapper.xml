@@ -36,6 +36,10 @@
 		delete from answer where QUESbno = #{QUESbno}
 	</delete>
 	
+	<delete id="answerListDeleteByName">
+		delete from answer where writer = #{memberName}
+	</delete>
+	
 	<select id="getAnswerCount" resultType="Long">
 		select count(answerNum) from answer where QUESbno = #{QUESbno}
 	</select>

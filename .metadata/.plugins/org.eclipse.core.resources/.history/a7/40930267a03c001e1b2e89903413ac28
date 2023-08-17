@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.repository.member.memberDEL.MemberDelRepository">
+	
+	<insert id="memberDelInsertById">
+		insert into member_DEL(
+			DELmemberNum, memberId, memberPwd, memberName, email, regDate, updateDate)
+		select seq_member_DEL.nextval, memberId, memberPwd, memberName, email, regDate, updateDate
+		from member
+		where memberId = #{memberId}
+	</insert>
+	
+	<insert id="memberDelInsertByName">
+		insert into member_DEL(
+			DELmemberNum, memberId, memberPwd, memberName, email, regDate, updateDate)
+		select seq_member_DEL.nextval, memberId, memberPwd, memberName, email, regDate, updateDate
+		from member
+		where memberName = #{memberName}
+	</insert>
+	
+	<select id="memberDelReadByName">
+		
+	</select>
+	
+</mapper>

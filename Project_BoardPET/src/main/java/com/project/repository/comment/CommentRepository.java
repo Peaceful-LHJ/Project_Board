@@ -22,6 +22,7 @@ public interface CommentRepository {
 	Long commentDelete(Long commentNum); // 댓글 단독 영구 삭제
 	Long commentListFromBoardDelete(Long bno); // 해당 자유게시물 댓글 모두 영구 삭제
 	Long commentListFromQuestionBoardDelete(Long bno); // 해당 질문게시물 댓글 모두 영구 삭제
+	Long allCommentDeleteByName(String memberName); // 해당 회원의 이름으로 작성된 모든 댓글 영구 삭제
 	
 	
 	Long commentUpdate(CommentVO vo); // 댓글 수정

@@ -44,6 +44,10 @@
 		delete from tbl_comment where QUESbno = #{QUESbno}
 	</delete>
 	
+	<delete id="allCommentDeleteByName">
+		delete from tbl_comment where writer = #{memberName}
+	</delete>
+	
 	
 	<update id="commentUpdate">
 		update tbl_comment set

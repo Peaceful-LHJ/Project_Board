@@ -54,6 +54,10 @@
     	select * from board where bno = #{bno}
     </select>
     
+    <select id="selectBoardBnoByName" resultType="Long">
+    	select bno from board where writer = #{memberName}
+    </select>
+    
     <select id="boardReadByName" resultType="boardVO">
     	select * from board where writer = #{memberName}
     </select>

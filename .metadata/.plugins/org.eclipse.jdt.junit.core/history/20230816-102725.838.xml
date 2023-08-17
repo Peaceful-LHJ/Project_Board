@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="BoardAttachRepositoryTest" project="Project_BoardPET" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.project.repository.attach.BoardAttachRepositoryTest" time="0.177">
-    <testcase name="boardAttachInsertTest" classname="com.project.repository.attach.BoardAttachRepositoryTest" time="0.177"/>
-  </testsuite>
-</testrun>

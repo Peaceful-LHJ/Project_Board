@@ -12,8 +12,8 @@ import com.project.domain.board.boardDEL.BoardDelVO;
 import com.project.domain.comment.CommentVO;
 import com.project.domain.comment.commentDEL.CommentFromDelVO;
 import com.project.repository.board.BoardRepository;
-import com.project.repository.comment.CommentDelRepository;
 import com.project.repository.comment.CommentRepository;
+import com.project.repository.comment.commentDEL.CommentDelRepository;
 
 import lombok.extern.log4j.Log4j;
 

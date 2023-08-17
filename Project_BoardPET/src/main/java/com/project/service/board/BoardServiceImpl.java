@@ -17,8 +17,8 @@ import com.project.repository.attach.BoardAttachRepository;
 import com.project.repository.board.BoardLikeRepository;
 import com.project.repository.board.BoardRepository;
 import com.project.repository.board.boardDEL.BoardDelRepository;
-import com.project.repository.comment.CommentDelRepository;
 import com.project.repository.comment.CommentRepository;
+import com.project.repository.comment.commentDEL.CommentDelRepository;
 
 @Service
 public class BoardServiceImpl implements BoardService { // 자유게시글 서비스 구현체

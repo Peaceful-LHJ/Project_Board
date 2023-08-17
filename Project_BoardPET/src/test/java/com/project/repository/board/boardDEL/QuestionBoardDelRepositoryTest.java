@@ -14,8 +14,8 @@ import com.project.domain.comment.CommentVO;
 import com.project.domain.comment.commentDEL.CommentFromDelVO;
 import com.project.repository.board.AnswerRepository;
 import com.project.repository.board.QuestionBoardRepository;
-import com.project.repository.comment.CommentDelRepository;
 import com.project.repository.comment.CommentRepository;
+import com.project.repository.comment.commentDEL.CommentDelRepository;
 
 import lombok.extern.log4j.Log4j;
 
@@ -246,6 +246,13 @@ public class QuestionBoardDelRepositoryTest extends AppTest {
 		Long QUESbno = 1L;
 		QuestionBoardDelVO questionBoardDelRead = questionBoardDelRepository.questionBoardDelRead(QUESbno);
 		log.info(questionBoardDelRead);
+	}
+	
+	@Ignore
+	@Test
+	public void questionBoardDelInsertByNameTest() {
+		Long questionBoardDelInsertByName = questionBoardDelRepository.questionBoardDelInsertByName("작성자");
+		log.info("해당 회원의 삭제된 질문글 수 : " + questionBoardDelInsertByName);
 	}
 
 }

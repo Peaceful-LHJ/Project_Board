@@ -65,4 +65,18 @@ public class QuestionBoardRepositoryTest extends AppTest { // 질문게시글 Re
 		log.info(questionBoardReadByName);
 	}
 	
+	@Ignore
+	@Test
+	public void questionBoardDeleteListByNameTest() { // 해당 회원의 이름으로 작성된 모든 질문글 영구삭제
+		Long questionBoardDeleteListByName = questionBoardRepository.questionBoardDeleteListByName("작성자");
+		log.info("해당 회원의 영구삭제된 질문글 수 : " + questionBoardDeleteListByName);
+	}
+	
+	@Ignore
+	@Test
+	public void selectQuestionBoardBnoByNameTest() {
+		List<Long> selectQuestionBoardBnoByName = questionBoardRepository.selectQuestionBoardBnoByName("작성자");
+		log.info(selectQuestionBoardBnoByName);
+	}
+	
 }

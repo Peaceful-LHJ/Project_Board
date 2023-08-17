@@ -1,7 +1,0 @@
-package com.project.repository;
-
-public interface TestRepository {
-	
-	private String getDate();
-	
-}

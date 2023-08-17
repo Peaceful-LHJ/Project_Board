@@ -10,6 +10,12 @@
 		from answer where answerNum = #{answerNum}
     </insert>
     
+	<insert id="answerDelInsertByName">
+    	insert into answer_DEL (DELanswerNum, answerNum, QUESbno, content, writer, regDate, updateDate)
+		select seq_answer_DEL.nextval, answerNum, QUESbno, content, writer, regDate, updateDate
+		from answer where writer = #{memberName}
+    </insert>
+    
 	<insert id="NonAnswerDelInsert">
     	insert into answer_FromDEL (fromDELanswerNum, answerNum, QUESbno, content, writer, regDate, updateDate)
 		select seq_answer_FromDEL.nextval, answerNum, QUESbno, content, writer, regDate, updateDate

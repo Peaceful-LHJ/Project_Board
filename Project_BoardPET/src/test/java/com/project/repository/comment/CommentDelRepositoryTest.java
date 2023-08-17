@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.project.AppTest;
 import com.project.domain.comment.commentDEL.CommentDelVO;
 import com.project.domain.comment.commentDEL.CommentFromDelVO;
+import com.project.repository.comment.commentDEL.CommentDelRepository;
 
 import lombok.extern.log4j.Log4j;
 
@@ -45,16 +46,23 @@ public class CommentDelRepositoryTest extends AppTest {
 	
 	@Ignore
 	@Test
-	public void commentDelReadTest() {
+	public void commentDelReadTest() { // 삭제된 댓글 조회
 		CommentDelVO commentDelRead = commentDelRepository.commentDelRead(1L);
 		log.info(commentDelRead);
 	}
 	
 	@Ignore
 	@Test
-	public void NoncommentDelRead() {
+	public void NoncommentDelReadTest() { // 가삭제된 댓글 조회
 		CommentFromDelVO noncommentDelRead = commentDelRepository.NoncommentDelRead(2L);
 		log.info(noncommentDelRead);
+	}
+	
+	@Ignore
+	@Test
+	public void allCommentDelInsertListByNameTest() { // 해당 회원의 이름으로 작성된 모든 댓글 삭제
+		Long allCommentDeleteCount = commentDelRepository.allCommentDelInsertListByName("작성자");
+		log.info("삭제된 댓글 수 : " + allCommentDeleteCount);
 	}
 	
 }

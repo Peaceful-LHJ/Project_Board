@@ -62,4 +62,18 @@ public class BoardRepositoryTest extends AppTest {
 		log.info(boardReadByName);
 	}
 	
+	@Ignore
+	@Test
+	public void boardDeleteListByNameTest() {
+		Long boardDeleteListByName = boardRepository.boardDeleteListByName("작성자");
+		log.info("해당 회원의 영구삭제된 자유게시글 수 : " + boardDeleteListByName);
+	}
+	
+	@Ignore
+	@Test
+	public void selectBoardBnoByNameTest() { // 해당 자유게시글의 번호 추출 테스트
+		List<Long> selectBoardBnoByName = boardRepository.selectBoardBnoByName("작성자");
+		log.info(selectBoardBnoByName);
+	}
+	
 }

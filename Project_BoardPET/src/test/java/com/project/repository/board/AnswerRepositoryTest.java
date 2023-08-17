@@ -1,3 +1,4 @@
+
 package com.project.repository.board;
 
 import java.util.List;
@@ -76,9 +77,16 @@ public class AnswerRepositoryTest extends AppTest { // 답글 repository 테스�
 	
 	@Ignore
 	@Test
-	public void answerReadByNameTest() {
+	public void answerReadByNameTest() { // 해당 회원의 이름으로 작성된 모든 답글 조회
 		List<AnswerVO> answerReadByName = answerRepository.answerReadByName("작성자");
 		log.info(answerReadByName);
+	}
+	
+	@Ignore
+	@Test
+	public void answerListDeleteByNameTest() { // 해당 회원의 이름으로 작성된 모든 답글 영구 삭제
+		Long answerListDeleteByName = answerRepository.answerListDeleteByName("작성자");
+		log.info("해당 회원의 영구삭제된 답글 수 : " + answerListDeleteByName);
 	}
 
 }

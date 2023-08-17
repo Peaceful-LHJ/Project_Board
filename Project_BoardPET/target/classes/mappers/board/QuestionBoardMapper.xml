@@ -17,8 +17,16 @@
     	select * from QUESboard where writer = #{memberName}
     </select>
     
+    <select id="selectQuestionBoardBnoByName" resultType="Long">
+    	select QUESbno from QUESboard where writer = #{memberName}
+    </select>
+    
     <delete id="questionBoardDelete">
     	delete from QUESboard where QUESbno = #{QUESbno}
+    </delete>
+    
+    <delete id="questionBoardDeleteListByName">
+    	delete from QUESboard where writer = #{memberName}
     </delete>
     
 	<update id="questionBoardUpdate">

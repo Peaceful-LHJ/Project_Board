@@ -10,6 +10,12 @@
 		from QUESboard where QUESbno = #{QUESbno}
     </insert>
     
+	<insert id="questionBoardDelInsertByName">
+    	insert into QUESboard_DEL (delQUESbno, QUESbno, title, content, writer, regDate, updateDate)
+		select seq_QUESboard_DEL.nextval, QUESbno, title, content, writer, regDate, updateDate
+		from QUESboard where writer = #{memberName}
+    </insert>
+    
 	<select id="questionBoardDelRead" resultType="QuestionBoardDelVO">
     	select * from QUESboard_DEL where QUESbno = #{QUESbno}
     </select>

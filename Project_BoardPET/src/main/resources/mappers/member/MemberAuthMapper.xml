@@ -5,7 +5,7 @@
 <mapper namespace="com.project.repository.member.MemberAuthRepository">
   
     <insert id="authInsert">
-    	insert into memberAuth values(#{memberId},#{auth})
+    	insert into memberAuth values(#{memberId}, #{auth})
     </insert>
     
 </mapper>

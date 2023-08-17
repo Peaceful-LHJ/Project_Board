@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CommentDelRepositoryTest" project="Project_BoardPET" tests="7" started="7" failures="0" errors="0" ignored="6">
+  <testsuite name="com.project.repository.comment.CommentDelRepositoryTest" time="2.815">
+    <testcase name="commentDelReadTest" classname="com.project.repository.comment.CommentDelRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="allCommentDelInsertListByNameTest" classname="com.project.repository.comment.CommentDelRepositoryTest" time="0.178"/>
+    <testcase name="NonBoardCommentDelInsertTest" classname="com.project.repository.comment.CommentDelRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="NonQuestionBoardCommentDelInsertTest" classname="com.project.repository.comment.CommentDelRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="NoncommentDelReadTest" classname="com.project.repository.comment.CommentDelRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="questionBoardCommentDelInsertTest" classname="com.project.repository.comment.CommentDelRepositoryTest" time="0.0" ignored="true"/>
+    <testcase name="boardCommentDelInsertTest" classname="com.project.repository.comment.CommentDelRepositoryTest" time="0.0" ignored="true"/>
+  </testsuite>
+</testrun>
