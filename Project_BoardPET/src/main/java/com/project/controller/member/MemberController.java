@@ -167,7 +167,6 @@ public class MemberController {
 			if(uri == null) uri="/";
 			return "redirect:" + uri;
 		}
-		
 		return "member/login";
 	}
 	

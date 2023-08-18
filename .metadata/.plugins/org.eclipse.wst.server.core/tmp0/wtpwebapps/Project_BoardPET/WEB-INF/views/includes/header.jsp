@@ -12,7 +12,7 @@
 </sec:authorize>
 
 <!DOCTYPE html>
-<html class="dark" style="color-scheme: dark;">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>My Web Site</title>
@@ -42,20 +42,23 @@
 <nav class="navbar navbar-expand-sm bg-dark justify-content-between">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="${ctxPath == '' ? '/': ctxPath}" style="color: white;">Home</a>
+            <a class="nav-link" href="${ctxPath == '' ? '/': ctxPath}" style="color: white;">메인페이지</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="${ctxPath}/board/list" style="color: white;">자유게시판</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" style="color: white;">Link 3</a>
+            <a class="nav-link" href="#" style="color: white;">질문게시판</a>
+        </li>
+		<li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">공지사항</a>
         </li>
     </ul>
 	<ul class="navbar-nav">
 		<sec:authorize access="isAnonymous()">
 		<li class="nav-item">
 			<a class="nav-link" href="${ctxPath}/join/step1" style="color: white;">회원가입</a>
-		</li>		
+		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="${ctxPath}/login" style="color: white;">로그인</a>
 		</li>

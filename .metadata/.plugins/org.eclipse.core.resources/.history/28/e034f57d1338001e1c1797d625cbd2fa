@@ -1,5 +1,0 @@
-package com.project.repository.report;
-
-public interface CommentReport { // 댓글 신고 기능
-
-}

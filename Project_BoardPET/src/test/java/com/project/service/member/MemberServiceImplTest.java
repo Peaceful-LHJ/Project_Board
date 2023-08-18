@@ -67,10 +67,10 @@ public class MemberServiceImplTest extends AppTest {
 	@Test
 	public void memberJoinTest() { // 회원가입 테스트
 		MemberVO vo = new MemberVO();
-		vo.setMemberId("user");
+		vo.setMemberId("userA");
 		vo.setMemberPwd("1234");
-		vo.setMemberName("사용자");
-		vo.setEmail("user@test.com");
+		vo.setMemberName("사용자A");
+		vo.setEmail("userA@test.com");
 		memberService.memberJoin(vo);
 	}
 	

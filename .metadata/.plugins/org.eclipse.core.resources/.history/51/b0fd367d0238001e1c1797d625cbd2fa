@@ -1,9 +1,0 @@
-package com.project.repository.board.boardDEL;
-
-public interface AnswerDelRepository {
-	
-	void answerDelInsert(Long answerNum); // 답글 삭제테이블 이동
-	
-	void NonAnswerDelInsert()
-	
-}

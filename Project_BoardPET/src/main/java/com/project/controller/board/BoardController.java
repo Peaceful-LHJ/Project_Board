@@ -27,42 +27,41 @@ import com.project.domain.common.Pagination;
 import com.project.service.board.BoardService;
 
 @Controller
-@RequestMapping("/board")
 public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
 	
 	// 게시물 목록창
-	@GetMapping("/list")
+	@GetMapping("/board/list")
 	public void list(Model model, Criteria criteria) {
 		model.addAttribute("list", boardService.getList(criteria));
 		model.addAttribute("p", new Pagination(criteria, boardService.totalCount(criteria)));
 	}
 	
 	// 게시물 첨부파일 리스트
-	@GetMapping("/getBoardAttachList")
+	@GetMapping("/board/getBoardAttachList")
 	@ResponseBody
 	public ResponseEntity<List<BoardAttachVO>> getBoardAttachList(Long bno) {
 		return new ResponseEntity<List<BoardAttachVO>>(boardService.getBoardAttachList(bno), HttpStatus.OK);
 	}
 	
 	// 게시물 첨부파일 정보 리스트
-	@GetMapping("/getBoardAttachFileInfo")
+	@GetMapping("/board/getBoardAttachFileInfo")
 	@ResponseBody
 	public ResponseEntity<BoardAttachVO> getBoardAttachFileInfo(String uuid) {
 		return new ResponseEntity<>(boardService.getBoardAttach(uuid), HttpStatus.OK);
 	}
 	
 	// 게시물 조회
-	@GetMapping("/get")
+	@GetMapping("/board/get")
 	public void boardRead(Long bno, Model model, Criteria criteria) {
 		model.addAttribute("board", boardService.boardRead(bno));
 	}
 	
 	// 게시물 수정창
 	@PreAuthorize("isAuthenticated()")
-	@GetMapping("/modify")
+	@GetMapping("/board/modify")
 	public void boardModify(Long bno, Model model, Criteria criteria, Authentication authentication) {
 		BoardVO boardVO = boardService.boardRead(bno);
 		String username = authentication.getName(); // 인증된 사용자의 계정
@@ -80,12 +79,12 @@ public class BoardController {
 	
 	// 게시물 등록창
 	@PreAuthorize("isAuthenticated()")
-	@GetMapping("/register")
+	@GetMapping("/board/register")
 	public void register() {}
 	
 	// 게시물 등록 실행
 	@PreAuthorize("isAuthenticated()")
-	@PostMapping("/register")
+	@PostMapping("/board/register")
 	public String boardRegister(BoardVO boardVO, RedirectAttributes rttr) {
 		boardService.boardRegister(boardVO);
 		rttr.addFlashAttribute("result", boardVO.getBno()); // ${result}
@@ -95,7 +94,7 @@ public class BoardController {
 	
 	// 게시물 수정
 	@PreAuthorize("isAuthenticated() and principal.username == #boardVO.writer or hasRole('ROLE_ADMIN')")
-	@PostMapping("/modify")
+	@PostMapping("/board/modify")
 	public String boardModify(BoardVO boardVO, RedirectAttributes rttr, Criteria criteria) {
 		if(boardService.boardModify(boardVO)) {
 			rttr.addFlashAttribute("result", boardVO.getBno());
@@ -106,7 +105,7 @@ public class BoardController {
 	
 	// 게시물 삭제
 	@PreAuthorize("isAuthenticated() and principal.username == #boardVO.writer or hasRole('ROLE_ADMIN')")
-	@PostMapping("/remove")
+	@PostMapping("/board/remove")
 	public String boardRemove(Long bno, RedirectAttributes rttr, Criteria criteria, String writer) {
 		if(boardService.boardRemove(bno)) {
 			rttr.addFlashAttribute("result", bno);
@@ -117,7 +116,7 @@ public class BoardController {
 	
 	// 게시물 추천 
 	@PreAuthorize("isAuthenticated()")
-	@PostMapping(value = "/like", produces = "plain/text; charset=utf-8")
+	@PostMapping(value = "/board/like", produces = "plain/text; charset=utf-8")
 	public ResponseEntity<String> hitLike(BoardLikeDTO boardLikeDTO) {
 		String message = boardLikeDTO.getBno() +"번 ";
 		if(boardService.hitLike(boardLikeDTO)) {
@@ -128,7 +127,7 @@ public class BoardController {
 		return new ResponseEntity<String>(message ,HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "/islike")
+	@PostMapping(value = "/board/islike")
 	@ResponseBody
 	public ResponseEntity<Boolean> isLike(BoardLikeDTO boardLikeDTO){
 		return new ResponseEntity<Boolean>(boardService.isLike(boardLikeDTO), HttpStatus.OK);

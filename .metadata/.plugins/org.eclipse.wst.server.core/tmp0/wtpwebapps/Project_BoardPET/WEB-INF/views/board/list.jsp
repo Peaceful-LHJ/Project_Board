@@ -3,10 +3,9 @@
 <%@ include file="../includes/header.jsp"%>
 
 <style>
-
     .container {
-        background-color: #333; /* 진한 그린색으로 변경 */
-        color: white; /* 글자색을 흰색으로 설정 */
+        background-color: #333;
+        color: white;
         font-size: 20px;
         padding: 10px 20px;
         border-radius: 20px;
@@ -25,9 +24,9 @@
 	
 	<div class="row">
 		<div class="col-12">
-			<div class="card" style="border-radius: 20px;">
+			<div class="card" style="border-radius: 30px;">
 				<div class="card-header">
-					<h3 class="float-left">자유게시물 목록</h3>
+					<h3 class="float-left" style=" color: black;">자유게시물 목록</h3>
 					<div class="float-right d-flex">
 						<select class="amount form-control mx-2">
 							<option value="10" ${criteria.amount==10 ? 'selected':''}>10개씩 보기</option>
