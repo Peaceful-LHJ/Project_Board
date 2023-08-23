@@ -1,7 +1,5 @@
 package com.project.repository.board.boardDEL;
 
-import java.util.List;
-
 import com.project.domain.board.boardDEL.BoardDelVO;
 
 public interface BoardDelRepository { // 삭제된 자유게시판

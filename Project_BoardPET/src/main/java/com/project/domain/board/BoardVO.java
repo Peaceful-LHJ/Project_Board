@@ -22,7 +22,7 @@ import lombok.ToString;
 @ToString
 @Builder
 @EqualsAndHashCode
-public class BoardVO { // 자유게시글 정보
+public class BoardVO { // 자유게시글 객체
 	
 	private Long bno; // Baord Number
 	private String title;
@@ -41,3 +41,5 @@ public class BoardVO { // 자유게시글 정보
 	private List<BoardAttachVO> boardAttachList; // 첨부파일
 	
 }
+
+
